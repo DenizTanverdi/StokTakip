@@ -50,6 +50,7 @@
     <Compile Include="Siparis.cs" />
     <Compile Include="Tedarikci.cs" />
     <Compile Include="Urunler.cs" />
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
