@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Siparis
+    public class Siparis
     {
         public int sId { get; set; }
         public int mId { get; set; }

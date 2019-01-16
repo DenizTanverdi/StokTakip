@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Urunler
+  public  class Urunler
     {
         public int pId { get; set; }
         public string  UrunAdi { get; set; }

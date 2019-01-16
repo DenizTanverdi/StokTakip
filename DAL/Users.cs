@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Users
+    public class Users
     {
         public int userid { get; set; }
         public string email { get; set; }

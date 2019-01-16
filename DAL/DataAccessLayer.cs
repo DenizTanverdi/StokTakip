@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
      
-    class DataAccessLayer {
+  public  class DataAccessLayer {
         SqlConnection con;
         public DataAccessLayer()
         {
@@ -25,7 +25,23 @@ namespace DAL
             kayitSayisi = con.Execute(sql, new { @ad = u.UrunAdi, @adet =u.Adet, @fiyat = u.Fiyat, @ustId = u.UstId, @tdId = u.tdId, @ctId = u.ctId});
             return kayitSayisi;
         }
-        //
+        public int LoginKontrol(Users u)
+        {
+            int kayitSayisi = 0;
+
+
+            var user = con.Query<Users>("Select uid,email,islogin from Users where email=@email and password=@password", new { @email = u.email, @password = u.pasword });
+
+            if (user.Count() > 0)
+            {
+                kayitSayisi = 1;
+
+            }
+
+            return kayitSayisi;
+
+
+        }
     }
 
 }

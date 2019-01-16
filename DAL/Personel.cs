@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Personel
+    public class Personel
     {
         public int calisanId { get; set; }
         public string CalisanAdi { get; set; }

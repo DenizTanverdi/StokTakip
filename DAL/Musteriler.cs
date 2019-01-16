@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Musteriler
+    public class Musteriler
     {
 
         public int mId { get; set; }
