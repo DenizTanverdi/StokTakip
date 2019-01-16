@@ -14,7 +14,7 @@ namespace DAL
         public string Görev { get; set; }
         public string Sehir { get; set; }
         public string TelNo { get; set; }
-        //deneme
+      
 
     }
 }
