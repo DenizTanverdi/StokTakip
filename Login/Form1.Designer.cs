@@ -79,6 +79,7 @@
             this.buttonGiris.TabIndex = 4;
             this.buttonGiris.Text = "GİRİŞ";
             this.buttonGiris.UseVisualStyleBackColor = true;
+            this.buttonGiris.Click += new System.EventHandler(this.buttonGiris_Click);
             // 
             // pictureBox1
             // 
