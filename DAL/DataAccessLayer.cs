@@ -30,7 +30,7 @@ namespace DAL
             int kayitSayisi = 0;
 
 
-            var user = con.Query<Users>("Select uid,email,islogin from Users where email=@email and password=@password", new { @email = u.email, @password = u.pasword });
+            var user = con.Query<Users>("Select userid,email,islogin from Users where email=@email and pasword=@password", new { @email = u.email, @password = u.pasword });
 
             if (user.Count() > 0)
             {

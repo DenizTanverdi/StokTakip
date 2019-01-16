@@ -16,5 +16,23 @@ namespace login
         {
             InitializeComponent();
         }
+        BLL.BusinessLogicLayer bll;
+        private void buttonGiris_Click(object sender, EventArgs e)
+        {
+
+
+            bll = new BLL.BusinessLogicLayer();
+            if (bll.LoginKontrol(textBoxAdi.Text, textBoxSifre.Text) > 0)
+            {
+                /* this.Visible = false;
+                 MainForm main = new MainForm();
+                 main.Show();*/
+                MessageBox.Show("Hoşgeldiniz");
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı Adı veya Şifre Hatalı");
+            }
+        }
     }
 }
