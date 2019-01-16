@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataAccessLayer
-    {
-    }
+     SqlConnection con;
+        public DataAccessLayer()
+        {
+            // con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+            string adres = "Data Source=.;Initial Catalog=StokTakip;Integrated Security=True";
+            con = new SqlConnection(adres);
+        }    
 }
