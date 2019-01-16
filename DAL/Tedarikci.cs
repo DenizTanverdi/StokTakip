@@ -9,6 +9,12 @@ namespace DAL
     class Tedarikci
     {
 
-        public int MyProperty { get; set; }
+        public int tdId { get; set; }
+        public string  FirmaAdi { get; set; }
+        public string Adres { get; set; }
+        public string Tel { get; set; }
+        public string İlce { get; set; }
+        public string İl { get; set; }
+
     }
 }
