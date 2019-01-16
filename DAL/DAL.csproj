@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="Kategori.cs" />
+    <Compile Include="Musteriler.cs" />
     <Compile Include="Personel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tedarikci.cs" />
     <Compile Include="Urunler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
