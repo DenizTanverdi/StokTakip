@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Detay
+   public class Detay
     {
         public int sId { get; set; }
         public int pId { get; set; }

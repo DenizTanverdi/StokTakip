@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Kategori
+    public class Kategori
     {
         public int ctId { get; set; }
 
