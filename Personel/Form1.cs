@@ -50,7 +50,7 @@ namespace Personel
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {//
             label1.Text = "";
             label1.Text = comboBox1.SelectedValue.ToString();
         }
