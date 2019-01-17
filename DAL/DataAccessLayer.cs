@@ -17,14 +17,7 @@ namespace DAL
             string adres = "Data Source=SEM-BILGISAYAR;Initial Catalog=StokTakipD;User ID=test2;Password=test2";
             con = new SqlConnection(adres);
         }
-        public int UrunKaydet(Urunler u)
-        {
-            int kayitSayisi = 0;
-            string sql = "Insert into Urunler (UrunAdi,Adet,Fiyat,UstId,tdId,ctId)Values(@ad,@adet,@fiyat,@ustId,@tdId,@ctId)";
-
-            kayitSayisi = con.Execute(sql, new { @ad = u.UrunAdi, @adet =u.Adet, @fiyat = u.Fiyat, @ustId = u.UstId, @tdId = u.tdId, @ctId = u.ctId});
-            return kayitSayisi;
-        }
+    
         public int LoginKontrol(Users u)
         {
             int kayitSayisi = 0;
@@ -42,29 +35,42 @@ namespace DAL
 
 
         }
+        //urunler bilgisi çekme methodu
+        public List<Urunler> UrunleriGetir()
+        {
+            var ct = con.Query<Urunler>("Select * from Urunler").ToList();
+
+            return ct;
+
+        }
         //List<Kategori> kategori = new List<Kategori> K();
         public  List<Kategori> KategoriGetir()
         {
-           
-           
-
             var ct = con.Query<Kategori>("Select * from kategori").ToList();
-           
            
             return ct;
            
         }
         public List<Tedarikci> TedarikciGetir()
         {
-
-
-
             var td = con.Query<Tedarikci>("Select * from tedarikci").ToList();
 
 
             return td;
 
         }
+
+        public int UrunKaydet(Urunler u)
+        {
+            int kayitSayisi = 0;
+            string sql = "Insert into Urunler (UrunAdi,Adet,Fiyat,UstId,tdId,ctId)Values(@ad,@adet,@fiyat,@ustId,@tdId,@ctId)";
+
+            kayitSayisi = con.Execute(sql, new { @ad = u.UrunAdi, @adet = u.Adet, @fiyat = u.Fiyat, @ustId = u.UstId, @tdId = u.tdId, @ctId = u.ctId });
+
+            return kayitSayisi;
+
+        }
+
         public int TedarikciEkle(Tedarikci t)
         {
             int kayitSayisi = 0;

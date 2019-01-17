@@ -33,6 +33,11 @@ namespace BLL
 
             return ret;
         }
+        //urun bilgisi getirme
+        public List<Urunler> UrunleriGetir()
+        {
+            return dal.UrunleriGetir();
+        }
         public List<Kategori> KategoriGetir()
         {
             return dal.KategoriGetir();
@@ -64,5 +69,28 @@ namespace BLL
             return a;
            
         }
+        public int UrunEkle(String adı,int adet,int fiyat,int UstId,int tdId,int ctId)
+        {
+            int a=0;
+            Urunler u = new Urunler();
+            if (!string.IsNullOrEmpty(adı))
+            {
+                u.UrunAdi = adı;
+                u.Adet = adet;
+                u.Fiyat = fiyat;
+                u.UstId = UstId;
+                u.tdId = tdId;
+                u.ctId = ctId;
+                a = 1;
+            }
+            else {
+                a = -1;
+            }
+            
+            return a;
+            
+        }
+
+
     }
 }
