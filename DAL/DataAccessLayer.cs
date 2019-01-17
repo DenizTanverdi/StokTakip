@@ -65,6 +65,14 @@ namespace DAL
             return td;
 
         }
+        public int TedarikciEkle(Tedarikci t)
+        {
+            int kayitSayisi = 0;
+
+            string sql = "Insert into Tedarikci (TedarikciAdi,ulke,tel,il,ilce)Values(@ad,@ulke,@tel,@il,@ilce)";
+           kayitSayisi= con.Execute(sql,new { @ad=t.tedarikciAdi,@ulke=t.ulke,@tel=t.Tel,@il=t.il, @ilce=t.ilce });
+            return kayitSayisi;
+        }
     }
 
 }

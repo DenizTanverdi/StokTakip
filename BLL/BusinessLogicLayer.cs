@@ -41,5 +41,27 @@ namespace BLL
         {
             return dal.TedarikciGetir();
         }
+        public int TedarikciEkle(string ad,string ulke,string tel,string il,string ilce)
+        {
+            int a=0;
+            Tedarikci t = new Tedarikci();
+            if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
+            {
+
+                t.tedarikciAdi = ad;
+                t.ulke = ulke;
+                t.Tel = tel;
+                t.il = il;
+                t.ilce = ilce;
+                a = 1;
+
+            }
+            else {
+                a = -1;
+                
+            }
+            return a;
+           
+        }
     }
 }
