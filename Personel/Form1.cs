@@ -54,5 +54,10 @@ namespace Personel
             label1.Text = "";
             label1.Text = comboBox1.SelectedValue.ToString();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
