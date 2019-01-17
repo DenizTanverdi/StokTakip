@@ -56,6 +56,7 @@ namespace BLL
                 a = 1;
 
             }
+            //deniz
             else {
                 a = -1;
                 
