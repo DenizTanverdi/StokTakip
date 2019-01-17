@@ -10,14 +10,16 @@ namespace DAL
 {
      
   public  class DataAccessLayer {
+
         SqlConnection con;
+        //constructure de baðlantý yapma
         public DataAccessLayer()
         {
             // con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             string adres = "Data Source=SEM-BILGISAYAR;Initial Catalog=StokTakipD;User ID=test2;Password=test2";
             con = new SqlConnection(adres);
         }
-    
+         //user kontrol kýsmý
         public int LoginKontrol(Users u)
         {
             int kayitSayisi = 0;
@@ -35,7 +37,8 @@ namespace DAL
 
 
         }
-        //urunler bilgisi çekme methodu
+        
+        //urunler bilgisi çekme 
         public List<Urunler> UrunleriGetir()
         {
             var ct = con.Query<Urunler>("Select * from Urunler").ToList();
@@ -43,23 +46,7 @@ namespace DAL
             return ct;
 
         }
-        //List<Kategori> kategori = new List<Kategori> K();
-        public  List<Kategori> KategoriGetir()
-        {
-            var ct = con.Query<Kategori>("Select * from kategori").ToList();
-           
-            return ct;
-           
-        }
-        public List<Tedarikci> TedarikciGetir()
-        {
-            var td = con.Query<Tedarikci>("Select * from tedarikci").ToList();
-
-
-            return td;
-
-        }
-
+       //urun ekleme
         public int UrunKaydet(Urunler u)
         {
             int kayitSayisi = 0;
@@ -70,7 +57,33 @@ namespace DAL
             return kayitSayisi;
 
         }
+        
+        //kategori getirme  
+        public  List<Kategori> KategoriGetir()
+        {
+            var ct = con.Query<Kategori>("Select * from kategori").ToList();
+           
+            return ct;
+           
+        }
+        //kategori ekleme
+       public  int kategoriEkle(Kategori k) {
+            int kayitSayisi = 0;
+            string sql = "Insert into Kategori (kategoriAdi) Values(@ad)";
+            kayitSayisi = con.Execute(sql, new { @ad = k.KategoriAdi });
+            
+            return kayitSayisi;
+        }
+        //tedarikçi getirme
+        public List<Tedarikci> TedarikciGetir()
+        {
+            var td = con.Query<Tedarikci>("Select * from tedarikci").ToList();
 
+
+            return td;
+
+        }
+        //tedarikçi ekleme
         public int TedarikciEkle(Tedarikci t)
         {
             int kayitSayisi = 0;
