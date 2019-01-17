@@ -37,5 +37,9 @@ namespace BLL
         {
             return dal.KategoriGetir();
         }
+        public List<Tedarikci> TedarikciGetir()
+        {
+            return dal.TedarikciGetir();
+        }
     }
 }

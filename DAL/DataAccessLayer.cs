@@ -54,6 +54,17 @@ namespace DAL
             return ct;
            
         }
+        public List<Tedarikci> TedarikciGetir()
+        {
+
+
+
+            var ct = con.Query<Tedarikci>("Select * from tedarikci").ToList();
+
+
+            return ct;
+
+        }
     }
 
 }
