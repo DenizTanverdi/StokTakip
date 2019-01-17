@@ -59,10 +59,10 @@ namespace DAL
 
 
 
-            var ct = con.Query<Tedarikci>("Select * from tedarikci").ToList();
+            var td = con.Query<Tedarikci>("Select * from tedarikci").ToList();
 
 
-            return ct;
+            return td;
 
         }
     }

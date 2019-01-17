@@ -10,11 +10,12 @@ namespace DAL
     {
 
         public int tdId { get; set; }
-        public string  FirmaAdi { get; set; }
-        public string Adres { get; set; }
+        public string  tedarikciAdi { get; set; }
+        public string ulke { get; set; }
         public string Tel { get; set; }
-        public string İlce { get; set; }
-        public string İl { get; set; }
+        public string il { get; set; }
+        public string ilce { get; set; }
+       
 
     }
 }

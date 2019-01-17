@@ -26,7 +26,12 @@ namespace Personel
             cmbxKategori.DataSource = kategori;
             cmbxKategori.ValueMember = "ctId";
             cmbxKategori.DisplayMember = "KategoriAdi";
-            
+            bll = new BLL.BusinessLogicLayer();
+            List<Tedarikci> tedarik = bll.TedarikciGetir();
+
+            comboBox1.DataSource = tedarik;
+            comboBox1.ValueMember = "tdId";
+            comboBox1.DisplayMember = "tedarikciAdi";
             /*  foreach (var item in kategori)
               {
                   cmbxKategori.Items.Add(item.KategoriAdi);
@@ -42,6 +47,12 @@ namespace Personel
         {
             label1.Text = "";
             label1.Text = cmbxKategori.SelectedValue.ToString();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label1.Text = "";
+            label1.Text = comboBox1.SelectedValue.ToString();
         }
     }
 }
