@@ -38,21 +38,43 @@ namespace BLL
         {
             return dal.UrunleriGetir();
         }
+
+        //kategori getirme
         public List<Kategori> KategoriGetir()
         {
             return dal.KategoriGetir();
         }
+        //kategori ekleme
+        public int KategoriEkle(String adı)
+        {
+            int a = 0;
+            Kategori k = new Kategori();
+            if (!string.IsNullOrEmpty(adı))
+            {
+                k.KategoriAdi = adı;
+                a = 1;
+            }
+            else
+            {
+                a = -1;
+            }
+
+            return a;
+
+        }
+       
+        //tedarikçi getirme
         public List<Tedarikci> TedarikciGetir()
         {
             return dal.TedarikciGetir();
         }
+        //tedarikçi ekleme
         public int TedarikciEkle(string ad,string ulke,string tel,string il,string ilce)
         {
             int a=0;
             Tedarikci t = new Tedarikci();
             if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
             {
-
                 t.tedarikciAdi = ad;
                 t.ulke = ulke;
                 t.Tel = tel;
@@ -69,6 +91,8 @@ namespace BLL
             return a;
            
         }
+
+        //urun ekleme
         public int UrunEkle(String adı,int adet,int fiyat,int UstId,int tdId,int ctId)
         {
             int a=0;
