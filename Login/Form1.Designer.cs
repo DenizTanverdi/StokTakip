@@ -50,6 +50,7 @@
             // 
             this.textBoxSifre.Location = new System.Drawing.Point(202, 100);
             this.textBoxSifre.Name = "textBoxSifre";
+            this.textBoxSifre.PasswordChar = '*';
             this.textBoxSifre.Size = new System.Drawing.Size(191, 20);
             this.textBoxSifre.TabIndex = 1;
             // 
