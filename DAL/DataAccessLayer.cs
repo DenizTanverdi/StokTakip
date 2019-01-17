@@ -42,6 +42,18 @@ namespace DAL
 
 
         }
+        //List<Kategori> kategori = new List<Kategori> K();
+        public  List<Kategori> KategoriGetir()
+        {
+           
+           
+
+            var ct = con.Query<Kategori>("Select * from kategori").ToList();
+           
+           
+            return ct;
+           
+        }
     }
 
 }

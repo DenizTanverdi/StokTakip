@@ -33,5 +33,9 @@ namespace BLL
 
             return ret;
         }
+        public List<Kategori> KategoriGetir()
+        {
+            return dal.KategoriGetir();
+        }
     }
 }
