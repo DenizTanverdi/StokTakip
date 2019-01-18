@@ -50,6 +50,7 @@
     <Compile Include="Musteriler.cs" />
     <Compile Include="Personel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Satis.cs" />
     <Compile Include="Siparis.cs" />
     <Compile Include="Tedarikci.cs" />
     <Compile Include="Urunler.cs" />
