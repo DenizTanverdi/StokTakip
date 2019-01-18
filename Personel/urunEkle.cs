@@ -40,7 +40,12 @@ namespace Personel
 
               }*/
 
+            bll = new BLL.BusinessLogicLayer();
+            List<Urunler> urun = bll.UrunleriGetir();
 
+            comboBox2.DataSource = urun;
+            comboBox2.ValueMember = "pId";
+            comboBox2.DisplayMember = "UrunAdi";
         }
 
         private void cmbxKategori_SelectedIndexChanged(object sender, EventArgs e)

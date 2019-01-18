@@ -52,19 +52,10 @@
     <Compile Include="urunEkle.Designer.cs">
       <DependentUpon>urunEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="goruntule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="goruntule.Designer.cs">
-      <DependentUpon>goruntule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="urunEkle.resx">
       <DependentUpon>urunEkle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="goruntule.resx">
-      <DependentUpon>goruntule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

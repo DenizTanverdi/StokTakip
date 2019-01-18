@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Toptanci;
 
 namespace MainForm
 {
@@ -42,7 +43,18 @@ namespace MainForm
 
         private void toptancıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Toptanci.goruntule g = new Toptanci.goruntule();
+       
+        }
+
+        private void çIKIŞToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          Application.Exit();
+        }
+
+        private void toptancıEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            goruntule g = new goruntule();
+            g.MdiParent = this;
             g.Show();
         }
     }
