@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using DAL;
 
-namespace Toptanci
+namespace Toptanci_Goruntule
 {
 
     
@@ -31,7 +31,6 @@ namespace Toptanci
 
 
             bll = new BLL.BusinessLogicLayer();
-            kayitgetir();
 
 
         }

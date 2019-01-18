@@ -1,4 +1,4 @@
-﻿namespace Toptanci
+﻿namespace Toptanci_Goruntule
 {
     partial class goruntule
     {

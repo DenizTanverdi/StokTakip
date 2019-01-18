@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Personel
 {
-    public partial class Form1 : Form
+    public partial class urunEkle : Form
     {
-        public Form1()
+        public urunEkle()
         {
             InitializeComponent();
         }

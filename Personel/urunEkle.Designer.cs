@@ -1,6 +1,6 @@
 ﻿namespace Personel
 {
-    partial class Form1
+    partial class urunEkle
     {
         /// <summary>
         /// Required designer variable.

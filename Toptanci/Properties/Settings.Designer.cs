@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Toptanci_Goruntule.Properties {
+namespace Toptanci.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
