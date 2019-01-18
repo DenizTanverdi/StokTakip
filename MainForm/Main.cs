@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace MainForm
         private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             urunEkle urun = new urunEkle();
+            urun.MdiParent = this;
             urun.Show();
             
         }
@@ -56,6 +58,11 @@ namespace MainForm
             goruntule g = new goruntule();
             g.MdiParent = this;
             g.Show();
+        }
+
+        private void wEBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("www.google.com");
         }
     }
 }

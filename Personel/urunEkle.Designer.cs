@@ -144,11 +144,11 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Fiyat:";
             // 
-            // Form1
+            // urunEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 462);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -161,8 +161,8 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbxKategori);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "urunEkle";
+            this.Text = "ÜRÜN EKLEME SAYFASI";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
