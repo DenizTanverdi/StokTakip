@@ -11,7 +11,7 @@ namespace DAL
         public int sId { get; set; }
         public int pId { get; set; }
         public int Fiyat { get; set; }
-        public decimal İndirim { get; set; }
+        public decimal indirim { get; set; }
         public int Miktar { get; set; }
 
 
