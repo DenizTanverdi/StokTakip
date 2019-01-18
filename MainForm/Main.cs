@@ -66,7 +66,7 @@ namespace MainForm
 
         private void wEBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("www.google.com");
+            Process.Start("www.github.com/DenizTanverdi/StokTakip");
         }
 
         private void ürünSayımToolStripMenuItem_Click(object sender, EventArgs e)
