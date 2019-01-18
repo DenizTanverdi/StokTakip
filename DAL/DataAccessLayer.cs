@@ -92,6 +92,13 @@ namespace DAL
            kayitSayisi= con.Execute(sql,new { @ad=t.tedarikciAdi,@ulke=t.ulke,@tel=t.Tel,@il=t.il, @ilce=t.ilce });
             return kayitSayisi;
         }
+        public List<Tedarikci> tedarikciAra(string s)
+        {
+            var td = con.Query<Tedarikci>("Select * from tedarikci where tedarikciAdi Like'%"+s+"'").ToList();
+
+
+            return td;
+        } 
     }
 
 }

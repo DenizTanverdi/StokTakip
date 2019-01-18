@@ -36,7 +36,7 @@ namespace Toptanci_Goruntule
         }
 
 
-        public void kayıtgetir()
+        public void kayitgetir()
         {
             List<Tedarikci> tedarikcis = new List<Tedarikci>();
 
@@ -52,13 +52,18 @@ namespace Toptanci_Goruntule
 
         private void button2_Click(object sender, EventArgs e)
         {
-            kayıtgetir();
+            kayitgetir();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            List<Tedarikci> tedarikcis = new List<Tedarikci>();
+
+            tedarikcis = bll.tedarikciAra(textBox1.Text);
+
+            dataGridView1.DataSource = tedarikcis;
+
         }
         /// <summary>
         /// /

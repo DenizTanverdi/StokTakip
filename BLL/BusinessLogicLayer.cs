@@ -115,6 +115,14 @@ namespace BLL
             
         }
 
+        //tedarikciAra
+        public List<Tedarikci> tedarikciAra(string s) {
+
+
+
+            return dal.tedarikciAra(s);
+        }
+
 
     }
 }
