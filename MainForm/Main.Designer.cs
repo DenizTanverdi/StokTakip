@@ -84,14 +84,14 @@
             // ürünEkleToolStripMenuItem
             // 
             this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ürünEkleToolStripMenuItem.Text = "ÜRÜN EKLE";
             this.ürünEkleToolStripMenuItem.Click += new System.EventHandler(this.ürünEkleToolStripMenuItem_Click);
             // 
             // ürünBilgisiToolStripMenuItem
             // 
             this.ürünBilgisiToolStripMenuItem.Name = "ürünBilgisiToolStripMenuItem";
-            this.ürünBilgisiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünBilgisiToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ürünBilgisiToolStripMenuItem.Text = "ÜRÜNLERİ GÖSTER";
             this.ürünBilgisiToolStripMenuItem.Click += new System.EventHandler(this.ürünBilgisiToolStripMenuItem_Click);
             // 
@@ -149,8 +149,9 @@
             // sATIŞYAPToolStripMenuItem
             // 
             this.sATIŞYAPToolStripMenuItem.Name = "sATIŞYAPToolStripMenuItem";
-            this.sATIŞYAPToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.sATIŞYAPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sATIŞYAPToolStripMenuItem.Text = "DETAY";
+            this.sATIŞYAPToolStripMenuItem.Click += new System.EventHandler(this.sATIŞYAPToolStripMenuItem_Click);
             // 
             // müşterilerToolStripMenuItem
             // 

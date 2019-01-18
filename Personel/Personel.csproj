@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="satisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="satisForm.Designer.cs">
+      <DependentUpon>satisForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="urunEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="UrunleriGoster.Designer.cs">
       <DependentUpon>UrunleriGoster.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="satisForm.resx">
+      <DependentUpon>satisForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="urunEkle.resx">
       <DependentUpon>urunEkle.cs</DependentUpon>
     </EmbeddedResource>

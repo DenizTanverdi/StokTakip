@@ -84,5 +84,11 @@ namespace MainForm
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void sATIŞYAPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            satisForm satis = new satisForm();
+            satis.Show();
+        }
     }
 }
