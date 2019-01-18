@@ -92,6 +92,7 @@ namespace DAL
            kayitSayisi= con.Execute(sql,new { @ad=t.tedarikciAdi,@ulke=t.ulke,@tel=t.Tel,@il=t.il, @ilce=t.ilce });
             return kayitSayisi;
         }
+        //tedarikci arama
         public List<Tedarikci> tedarikciAra(string s)
         {
             var td = con.Query<Tedarikci>("Select * from tedarikci where tedarikciAdi Like'%"+s+"'").ToList();
@@ -99,6 +100,14 @@ namespace DAL
 
             return td;
         } 
+        public  List<Musteriler> musteriGetir(Musteriler m){
+            var td = con.Query<Musteriler>("Select * from musteriler ").ToList();
+
+
+            return td;
+
+
+        }
     }
 
 }
