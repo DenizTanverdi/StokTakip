@@ -132,7 +132,7 @@ namespace DAL
         {
             string sql = "Select m.name as MüsteriAdý,m.city as Þehir,m.tel as Telefon,p.CalisanAdý,u.UrunAdi,d.fiyat,d.indirim,d.miktar from Musteri m inner join Siparis as s on m.mId=s.mId inner join Detay as d on s.sId=d.sId inner join Urunler u on d.pId=u.pId inner join Personel as p on p.calisanid=s.calisanId";
             var td = con.Query<Satis>(sql).ToList();
-
+            //
 
             return td;
         }
