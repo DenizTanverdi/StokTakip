@@ -71,6 +71,7 @@ namespace BLL
         //tedarikçi ekleme
         public int TedarikciEkle(string ad, string ulke, string tel, string il, string ilce)
         {
+
             int a = 0;
             Tedarikci t = new Tedarikci();
             if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
@@ -81,7 +82,7 @@ namespace BLL
                 t.il = il;
                 t.ilce = ilce;
                 a = 1;
-
+                dal.TedarikciEkle(t);
             }
             //deniz
             else
@@ -89,6 +90,7 @@ namespace BLL
                 a = -1;
 
             }
+        
             return a;
 
         }
@@ -107,6 +109,7 @@ namespace BLL
                 u.tdId = tdId;
                 u.ctId = ctId;
                 a = 1;
+                dal.UrunKaydet(u);
             }
             else
             {

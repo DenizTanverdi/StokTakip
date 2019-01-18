@@ -69,6 +69,22 @@ namespace Personel
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+            bll = new BLL.BusinessLogicLayer();
+            int a = bll.UrunEkle(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text),Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(cmbxKategori.SelectedValue));
+            if (a != -1)
+            {
+                MessageBox.Show("urun eklendi.");
+
+            }
+            else
+            {
+
+                MessageBox.Show("Kayıt Başarısız.");
+
+            }
+
+
         }
     }
 }
