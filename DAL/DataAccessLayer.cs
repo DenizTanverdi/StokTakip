@@ -123,7 +123,7 @@ namespace DAL
         //ürün arama
         public List<Urunler> urunAra(string s)
         {
-            var td = con.Query<Urunler>("Select * from urunler where urunAdi Like'%" + s + "'").ToList();
+            var td = con.Query<Urunler>("Select * from urunler where urunAdi Like'" + s + "%'").ToList();
 
 
             return td;
