@@ -136,9 +136,7 @@ namespace BLL
 
         public List<Urunler> urunAra(string s)
         {
-
-
-
+            
             return dal.urunAra(s);
         }
     }

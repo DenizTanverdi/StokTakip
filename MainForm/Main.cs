@@ -30,27 +30,37 @@ namespace MainForm
 
         }
 
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
         private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             urunEkle urun = new urunEkle();
             urun.MdiParent = this;
             urun.Show();
-            
+
         }
 
         private void ürünBilgisiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            UrunleriGoster u = new UrunleriGoster();
+            u.MdiParent = this;
+            u.Show();
+
+
         }
 
         private void toptancıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-       
+
         }
 
         private void çIKIŞToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          Application.Exit();
+            Application.Exit();
         }
 
         private void toptancıEkleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +73,16 @@ namespace MainForm
         private void wEBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("www.google.com");
+        }
+
+        private void ürünSayımToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
