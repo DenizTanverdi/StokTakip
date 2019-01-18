@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,9 +25,10 @@ namespace login
             bll = new BLL.BusinessLogicLayer();
             if (bll.LoginKontrol(textBoxAdi.Text, textBoxSifre.Text) > 0)
             {
-                /* this.Visible = false;
-                 MainForm main = new MainForm();
-                 main.Show();*/
+               
+                Main main = new Main();
+                main.Show();
+                this.Visible = false;
                 MessageBox.Show("Hoşgeldiniz");
             }
             else

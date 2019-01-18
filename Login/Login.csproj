@@ -85,6 +85,10 @@
       <Project>{feb8571a-e11c-429f-a66a-d24a6bc47f38}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MainForm\MainForm.csproj">
+      <Project>{5D526BD5-1224-4F5C-AA19-D9012F5B18B1}</Project>
+      <Name>MainForm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

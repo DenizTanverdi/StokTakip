@@ -46,10 +46,8 @@
             this.toptancıEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rAPORLARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -63,7 +61,6 @@
             this.groupBox1.Size = new System.Drawing.Size(691, 57);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kullanıcı Menüsü";
             // 
             // button1
             // 
@@ -183,7 +180,7 @@
             // toptancıEkleToolStripMenuItem
             // 
             this.toptancıEkleToolStripMenuItem.Name = "toptancıEkleToolStripMenuItem";
-            this.toptancıEkleToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.toptancıEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toptancıEkleToolStripMenuItem.Text = "Toptancı Ekle";
             // 
             // rAPORLARToolStripMenuItem
@@ -200,22 +197,11 @@
             this.raporOluşturToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.raporOluşturToolStripMenuItem.Text = "Rapor Oluştur";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MainForm.Properties.Resources._75d041a15f85b4faffd538458cc49e171;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 75);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(691, 376);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 450);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
@@ -224,7 +210,6 @@
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,7 +234,6 @@
         private System.Windows.Forms.ToolStripMenuItem toptancıEkleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rAPORLARToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporOluşturToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
