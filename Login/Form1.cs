@@ -36,5 +36,10 @@ namespace login
                 MessageBox.Show("Kullanıcı Adı veya Şifre Hatalı");
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
     }
 }

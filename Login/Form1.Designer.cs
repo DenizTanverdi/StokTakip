@@ -39,6 +39,9 @@
             // 
             // textBoxAdi
             // 
+            this.textBoxAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAdi.Location = new System.Drawing.Point(224, 34);
             this.textBoxAdi.Name = "textBoxAdi";
             this.textBoxAdi.Size = new System.Drawing.Size(191, 20);
@@ -47,6 +50,9 @@
             // 
             // textBoxSifre
             // 
+            this.textBoxSifre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSifre.Location = new System.Drawing.Point(224, 67);
             this.textBoxSifre.Name = "textBoxSifre";
             this.textBoxSifre.PasswordChar = '*';
@@ -56,6 +62,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(132, 34);
             this.label1.Name = "label1";
@@ -65,6 +74,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(132, 67);
             this.label2.Name = "label2";
@@ -74,6 +86,9 @@
             // 
             // buttonGiris
             // 
+            this.buttonGiris.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonGiris.Location = new System.Drawing.Point(224, 106);
             this.buttonGiris.Name = "buttonGiris";
             this.buttonGiris.Size = new System.Drawing.Size(191, 25);
@@ -84,6 +99,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.Image = global::Login.Properties.Resources.iconfinder_key_309058;
             this.pictureBox1.Location = new System.Drawing.Point(12, 34);
             this.pictureBox1.Name = "pictureBox1";
@@ -104,8 +121,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSifre);
             this.Controls.Add(this.textBoxAdi);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "GİRİŞ EKRANI";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

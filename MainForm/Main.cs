@@ -36,13 +36,7 @@ namespace MainForm
 
         }
 
-        private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            urunEkle urun = new urunEkle();
-            urun.MdiParent = this;
-            urun.Show();
-
-        }
+      
 
         private void ürünBilgisiToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -89,6 +83,21 @@ namespace MainForm
         {
             satisForm satis = new satisForm();
             satis.Show();
+        }
+
+        private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            urunEkle urun = new urunEkle();
+            urun.MdiParent = this;
+            urun.Show();
+
+        }
+        private void toptancıGörüntüleToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            tedarikciEkle T = new tedarikciEkle();
+            T.MdiParent = this;
+            T.Show();
+            
         }
     }
 }
