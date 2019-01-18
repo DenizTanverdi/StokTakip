@@ -139,5 +139,9 @@ namespace BLL
             
             return dal.urunAra(s);
         }
+        public List<Satis> satis()
+        {
+            return dal.satis();
+        }
     }
 }
