@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-     
-  public  class DataAccessLayer {
+
+    public class DataAccessLayer
+    {
 
         SqlConnection con;
         //constructure de baðlantý yapma
@@ -19,7 +20,7 @@ namespace DAL
             string adres = "Data Source=SEM-BILGISAYAR;Initial Catalog=StokTakipD;User ID=test2;Password=test2";
             con = new SqlConnection(adres);
         }
-         //user kontrol kýsmý
+        //user kontrol kýsmý
         public int LoginKontrol(Users u)
         {
             int kayitSayisi = 0;
@@ -37,7 +38,7 @@ namespace DAL
 
 
         }
-        
+
         //urunler bilgisi çekme 
         public List<Urunler> UrunleriGetir()
         {
@@ -46,7 +47,7 @@ namespace DAL
             return ct;
 
         }
-       //urun ekleme
+        //urun ekleme
         public int UrunKaydet(Urunler u)
         {
             int kayitSayisi = 0;
@@ -57,21 +58,22 @@ namespace DAL
             return kayitSayisi;
 
         }
-        
+
         //kategori getirme  
-        public  List<Kategori> KategoriGetir()
+        public List<Kategori> KategoriGetir()
         {
             var ct = con.Query<Kategori>("Select * from kategori").ToList();
-           
+
             return ct;
-           
+
         }
         //kategori ekleme
-       public  int kategoriEkle(Kategori k) {
+        public int kategoriEkle(Kategori k)
+        {
             int kayitSayisi = 0;
             string sql = "Insert into Kategori (kategoriAdi) Values(@ad)";
             kayitSayisi = con.Execute(sql, new { @ad = k.KategoriAdi });
-            
+
             return kayitSayisi;
         }
         //tedarikçi getirme
@@ -89,18 +91,19 @@ namespace DAL
             int kayitSayisi = 0;
 
             string sql = "Insert into Tedarikci (TedarikciAdi,ulke,tel,il,ilce)Values(@ad,@ulke,@tel,@il,@ilce)";
-           kayitSayisi= con.Execute(sql,new { @ad=t.tedarikciAdi,@ulke=t.ulke,@tel=t.Tel,@il=t.il, @ilce=t.ilce });
+            kayitSayisi = con.Execute(sql, new { @ad = t.tedarikciAdi, @ulke = t.ulke, @tel = t.Tel, @il = t.il, @ilce = t.ilce });
             return kayitSayisi;
         }
         //tedarikci arama
         public List<Tedarikci> tedarikciAra(string s)
         {
-            var td = con.Query<Tedarikci>("Select * from tedarikci where tedarikciAdi Like'%"+s+"'").ToList();
+            var td = con.Query<Tedarikci>("Select * from tedarikci where tedarikciAdi Like'%" + s + "'").ToList();
 
 
             return td;
-        } 
-        public  List<Musteriler> musteriGetir(Musteriler m){
+        }
+        public List<Musteriler> musteriGetir()
+        {
             var td = con.Query<Musteriler>("Select * from musteriler ").ToList();
 
 
@@ -108,6 +111,15 @@ namespace DAL
 
 
         }
+        public int MusteriEkle(Musteriler m)
+        {
+            int kayitSayisi = 0;
+
+            string sql = "Insert into Musteri (name,city,tel)Values(@ad,@il,@tel)";
+            kayitSayisi = con.Execute(sql, new { @ad = m.MusteriAdi, @il = m.city, @tel = m.Tel });
+            return kayitSayisi;
+        }
+
     }
 
 }

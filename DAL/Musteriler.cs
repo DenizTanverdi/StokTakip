@@ -10,9 +10,9 @@ namespace DAL
     {
 
         public int mId { get; set; }
-        public  string MusteriAdi { get; set; }
-        public string  Adres { get; set; }
-        public string  Tel { get; set; }
+        public string MusteriAdi { get; set; }
+        public string city { get; set; }
+        public string Tel { get; set; }
 
 
     }

@@ -18,9 +18,9 @@ namespace BLL
         {
             int ret = 0;
             Users u = new Users();
-           // bool kontrol = EmailKontrol(email);
+            // bool kontrol = EmailKontrol(email);
             bool k = !(string.IsNullOrEmpty(password));
-            if ( k)
+            if (k)
             {
                 u.email = email;
                 u.pasword = password;
@@ -62,16 +62,16 @@ namespace BLL
             return a;
 
         }
-       
+
         //tedarikçi getirme
         public List<Tedarikci> TedarikciGetir()
         {
             return dal.TedarikciGetir();
         }
         //tedarikçi ekleme
-        public int TedarikciEkle(string ad,string ulke,string tel,string il,string ilce)
+        public int TedarikciEkle(string ad, string ulke, string tel, string il, string ilce)
         {
-            int a=0;
+            int a = 0;
             Tedarikci t = new Tedarikci();
             if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
             {
@@ -84,18 +84,19 @@ namespace BLL
 
             }
             //deniz
-            else {
+            else
+            {
                 a = -1;
-                
+
             }
             return a;
-           
+
         }
 
         //urun ekleme
-        public int UrunEkle(String adı,int adet,int fiyat,int UstId,int tdId,int ctId)
+        public int UrunEkle(String adı, int adet, int fiyat, int UstId, int tdId, int ctId)
         {
-            int a=0;
+            int a = 0;
             Urunler u = new Urunler();
             if (!string.IsNullOrEmpty(adı))
             {
@@ -107,20 +108,30 @@ namespace BLL
                 u.ctId = ctId;
                 a = 1;
             }
-            else {
+            else
+            {
                 a = -1;
             }
-            
+
             return a;
-            
+
         }
 
         //tedarikciAra
-        public List<Tedarikci> tedarikciAra(string s) {
+        public List<Tedarikci> tedarikciAra(string s)
+        {
 
 
 
             return dal.tedarikciAra(s);
+        }
+        //musteri getir
+        public List<Musteriler> musteriGetir()
+        {
+
+
+
+            return dal.musteriGetir();
         }
 
 
