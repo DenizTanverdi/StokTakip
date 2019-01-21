@@ -17,7 +17,7 @@ namespace Personel
 
         BLL.BusinessLogicLayer bll;
         BLL2.BusinessLogicLayer bll2;
-        string kayitTipi = ConfigurationManager.AppSettings["kayitTipi"];
+        string kayitTipi = Properties.Settings.Default["kayitTipi"].ToString();
         public UrunleriGoster()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace Personel
             {
 
                 List<DALLinq.Urunler> u = new List<DALLinq.Urunler>();
-
+                bll2 = new BLL2.BusinessLogicLayer();
                 u = bll2.Urunler();
                 dataGridView1.DataSource = u;
 

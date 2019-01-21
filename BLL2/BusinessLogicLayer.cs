@@ -9,7 +9,7 @@ namespace BLL2
 
     public class BusinessLogicLayer
     {
-        DALLinq.DAL dll;
+        DALLinq.DAL dll=new DALLinq.DAL();
         public List<DALLinq.Urunler> Urunler()
         {
 

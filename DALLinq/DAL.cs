@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Linq.SqlClient;
 
 namespace DALLinq
 {
@@ -36,7 +37,7 @@ namespace DALLinq
         }
         public List<Urunler> urunAra(string s)
         {
-            var td = (from urn in db.Urunlers where urn.UrunAdi == "'" + s + "%'" select urn).ToList();
+            var td = (from urn in db.Urunlers where SqlMethods.Like(urn.UrunAdi  ,  s+"%"  )select urn).ToList();
 
 
             return td;
