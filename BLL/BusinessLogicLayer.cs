@@ -1,6 +1,8 @@
 ﻿using DAL;
+using DALLinq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,8 @@ namespace BLL
     public class BusinessLogicLayer
     {
         DataAccessLayer dal;
+        DALLinq.DAL dalLinq;
+        string kayitTipi = ConfigurationManager.AppSettings["KayitTipi"];
         public BusinessLogicLayer()
         {
             dal = new DataAccessLayer();
@@ -17,30 +21,45 @@ namespace BLL
         public int LoginKontrol(string email, string password)
         {
             int ret = 0;
-            Users u = new Users();
-            // bool kontrol = EmailKontrol(email);
-            bool k = !(string.IsNullOrEmpty(password));
+            
+               
+                // bool kontrol = EmailKontrol(email);
+                bool k = !(string.IsNullOrEmpty(password));
             if (k)
             {
-                u.email = email;
-                u.pasword = password;
-                ret = dal.LoginKontrol(u);
+               
+                if (kayitTipi != "linq")
+                {
+                    Users u = new Users();
+                    u.email = email;
+                    u.pasword = password;
+                    ret = dal.LoginKontrol(u);
+                }
+                else
+                {
+                    User u = new User();
+                    u.email = email;
+                    u.pasword = password;
+                    ret = dalLinq.LoginKontrol(u);
+                }
             }
             else
             {
                 ret = -1;
             }
+            
 
+            
             return ret;
         }
         //urun bilgisi getirme
-        public List<Urunler> UrunleriGetir()
+        public List<DAL.Urunler> UrunleriGetir()
         {
             return dal.UrunleriGetir();
         }
 
         //kategori getirme
-        public List<Kategori> KategoriGetir()
+        public List<DAL.Kategori> KategoriGetir()
         {
             return dal.KategoriGetir();
         }
@@ -48,7 +67,7 @@ namespace BLL
         public int KategoriEkle(String adı)
         {
             int a = 0;
-            Kategori k = new Kategori();
+            DAL.Kategori k = new DAL.Kategori();
             if (!string.IsNullOrEmpty(adı))
             {
                 k.KategoriAdi = adı;
@@ -64,7 +83,7 @@ namespace BLL
         }
 
         //tedarikçi getirme
-        public List<Tedarikci> TedarikciGetir()
+        public List<DAL.Tedarikci> TedarikciGetir()
         {
             return dal.TedarikciGetir();
         }
@@ -73,7 +92,7 @@ namespace BLL
         {
 
             int a = 0;
-            Tedarikci t = new Tedarikci();
+            DAL.Tedarikci t = new DAL.Tedarikci();
             if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
             {
                 t.tedarikciAdi = ad;
@@ -99,7 +118,7 @@ namespace BLL
         public int UrunEkle(String adı, int adet, int fiyat, int UstId, int tdId, int ctId)
         {
             int a = 0;
-            Urunler u = new Urunler();
+            DAL.Urunler u = new DAL.Urunler();
             if (!string.IsNullOrEmpty(adı))
             {
                 u.UrunAdi = adı;
@@ -121,7 +140,7 @@ namespace BLL
         }
 
         //tedarikciAra
-        public List<Tedarikci> tedarikciAra(string s)
+        public List<DAL.Tedarikci> tedarikciAra(string s)
         {
 
 
@@ -137,7 +156,7 @@ namespace BLL
             return dal.musteriGetir();
         }
 
-        public List<Urunler> urunAra(string s)
+        public List<DAL.Urunler> urunAra(string s)
         {
             
             return dal.urunAra(s);

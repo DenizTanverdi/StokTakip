@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StokTakipD" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SEM-BILGISAYAR;Initial Catalog=StokTakipD;User ID=test2" SettingsObjectName="DALLinq.Properties.Settings" SettingsPropertyName="StokTakipDConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Detay" Member="Detays">
+    <Type Name="Detay">
+      <Column Name="dId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fiyat" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="indirim" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="miktar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Sipari_Detay" Member="Sipari" ThisKey="sId" OtherKey="sId" Type="Sipari" IsForeignKey="true" />
+      <Association Name="Urunler_Detay" Member="Urunler" ThisKey="pId" OtherKey="pId" Type="Urunler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kategori" Member="Kategoris">
+    <Type Name="Kategori">
+      <Column Name="ctId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategoriAdi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Kategori_Kategori" Member="Kategori2" ThisKey="ctId" OtherKey="ctId" Type="Kategori" Cardinality="One" />
+      <Association Name="Kategori_Urunler" Member="Urunlers" ThisKey="ctId" OtherKey="ctId" Type="Urunler" />
+      <Association Name="Kategori_Kategori" Member="Kategori1" ThisKey="ctId" OtherKey="ctId" Type="Kategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Musteri" Member="Musteris">
+    <Type Name="Musteri">
+      <Column Name="mId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="tel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Musteri_Sipari" Member="Siparis" ThisKey="mId" OtherKey="mId" Type="Sipari" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personel" Member="Personels">
+    <Type Name="Personel">
+      <Column Name="calisanid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CalisanAdı" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CalisanSoyadi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Görev" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sehir" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TelNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Personel_Sipari" Member="Siparis" ThisKey="calisanid" OtherKey="calisanId" Type="Sipari" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Siparis" Member="Siparis">
+    <Type Name="Sipari">
+      <Column Name="sId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="mId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="calisanId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SiparisTarih" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Sipari_Detay" Member="Detays" ThisKey="sId" OtherKey="sId" Type="Detay" />
+      <Association Name="Personel_Sipari" Member="Personel" ThisKey="calisanId" OtherKey="calisanid" Type="Personel" IsForeignKey="true" />
+      <Association Name="Musteri_Sipari" Member="Musteri" ThisKey="mId" OtherKey="mId" Type="Musteri" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tedarikci" Member="Tedarikcis">
+    <Type Name="Tedarikci">
+      <Column Name="tdId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tedarikciAdi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ulke" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="il" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ilce" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Tedarikci_Urunler" Member="Urunlers" ThisKey="tdId" OtherKey="tdId" Type="Urunler" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Urunler" Member="Urunlers">
+    <Type Name="Urunler">
+      <Column Name="pId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UrunAdi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Adet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fiyat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="UstId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tdId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ctId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Urunler_Detay" Member="Detays" ThisKey="pId" OtherKey="pId" Type="Detay" />
+      <Association Name="Urunler_Urunler" Member="Urunlers" ThisKey="pId" OtherKey="UstId" Type="Urunler" />
+      <Association Name="Kategori_Urunler" Member="Kategori" ThisKey="ctId" OtherKey="ctId" Type="Kategori" IsForeignKey="true" />
+      <Association Name="Tedarikci_Urunler" Member="Tedarikci" ThisKey="tdId" OtherKey="tdId" Type="Tedarikci" IsForeignKey="true" />
+      <Association Name="Urunler_Urunler" Member="Urunler1" ThisKey="UstId" OtherKey="pId" Type="Urunler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="userid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pasword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="isLogin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
