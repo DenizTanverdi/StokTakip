@@ -16,6 +16,8 @@ namespace Personel
     {
 
         BLL.BusinessLogicLayer bll;
+        BLL2.BusinessLogicLayer bll2;
+        string kayitTipi = ConfigurationManager.AppSettings["kayitTipi"];
         public UrunleriGoster()
         {
             InitializeComponent();
@@ -40,31 +42,30 @@ namespace Personel
 
         public void kayitgetir()
         {
-            string kayitTipi = ConfigurationManager.AppSettings["kayitTipi"];
+           
 
             if (kayitTipi != "linq")
             {
                 List<DAL.Urunler> u = new List<DAL.Urunler>();
 
                 u = bll.UrunleriGetir();
-
+                dataGridView1.DataSource = u;
             }
             else
             {
 
                 List<DALLinq.Urunler> u = new List<DALLinq.Urunler>();
 
-                u = db.UrunGetir();
+                u = bll2.Urunler();
+                dataGridView1.DataSource = u;
 
             }
 
 
 
-            List<Urunler> urun = new List<Urunler>();
 
-            urun = bll.UrunleriGetir();
 
-            dataGridView1.DataSource = urun;
+
 
         }
 
