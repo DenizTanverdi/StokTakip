@@ -12,8 +12,8 @@ namespace BLL
     public class BusinessLogicLayer
     {
         DataAccessLayer dal;
-        DALLinq.DAL dalLinq;
-        string kayitTipi = ConfigurationManager.AppSettings["KayitTipi"];
+        DALLinq.DAL dll;
+        
         public BusinessLogicLayer()
         {
             dal = new DataAccessLayer();
@@ -27,7 +27,7 @@ namespace BLL
                 bool k = !(string.IsNullOrEmpty(password));
             if (k)
             {
-               
+                string kayitTipi = Properties.Settings1.Default["kayitTipi"].ToString();
                 if (kayitTipi != "linq")
                 {
                     Users u = new Users();
@@ -38,9 +38,11 @@ namespace BLL
                 else
                 {
                     User u = new User();
+                    dll = new DALLinq.DAL();
                     u.email = email;
                     u.pasword = password;
-                    ret = dalLinq.LoginKontrol(u);
+                   
+                    ret = dll.LoginKontrol(u);
                 }
             }
             else
