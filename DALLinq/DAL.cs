@@ -26,6 +26,14 @@ namespace DALLinq
             return ret;
 
         }
+        public List<Urunler> UrunGetir()
+        {
+
+
+            var urun = (from urn in db.Urunlers  select urn).ToList();
+            
+            return urun;
+        }
 
         
     }

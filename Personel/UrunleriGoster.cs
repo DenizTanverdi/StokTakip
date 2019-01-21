@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -20,8 +21,8 @@ namespace Personel
             InitializeComponent();
         }
 
-     
 
+        DALLinq.DAL db;
         private void UrunleriGoster_Load(object sender, EventArgs e)
         {
             bll = new BLL.BusinessLogicLayer();
@@ -39,16 +40,38 @@ namespace Personel
 
         public void kayitgetir()
         {
+            string kayitTipi = ConfigurationManager.AppSettings["kayitTipi"];
+
+            if (kayitTipi != "linq")
+            {
+                List<DAL.Urunler> u = new List<DAL.Urunler>();
+
+                u = bll.UrunleriGetir();
+
+            }
+            else
+            {
+
+                List<DALLinq.Urunler> u = new List<DALLinq.Urunler>();
+
+                u = db.UrunGetir();
+
+            }
+
+
+
             List<Urunler> urun = new List<Urunler>();
 
             urun = bll.UrunleriGetir();
 
             dataGridView1.DataSource = urun;
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+
             kayitgetir();
         }
     }

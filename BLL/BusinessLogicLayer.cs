@@ -54,6 +54,14 @@ namespace BLL
             
             return ret;
         }
+
+
+        public List<DALLinq.Urunler> Urunler()
+        {
+
+
+            return dll.UrunGetir();
+        }
         //urun bilgisi getirme
         public List<DAL.Urunler> UrunleriGetir()
         {
