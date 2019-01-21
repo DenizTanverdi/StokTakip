@@ -13,7 +13,7 @@ namespace login
         public static string kayitTipi;
         /// <summary>
         /// The main entry point for the application.
-        /// </summary>
+        ///// </summary>
         [STAThread]
         static void Main()
         {

@@ -56,7 +56,7 @@ namespace DAL
             kayitSayisi = con.Execute(sql, new { @ad = u.UrunAdi, @adet = u.Adet, @fiyat = u.Fiyat, @ustId = u.UstId, @tdId = u.tdId, @ctId = u.ctId });
 
             return kayitSayisi;
-            //deneme
+            //deneme mesut murat
         }
 
         //kategori getirme  
