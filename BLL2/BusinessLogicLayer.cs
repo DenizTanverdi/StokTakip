@@ -16,5 +16,11 @@ namespace BLL2
 
             return dll.UrunGetir();
         }
+
+        public List<DALLinq.Urunler> urunAra(string s)
+        {
+
+            return dll.urunAra(s);
+        }
     }
 }

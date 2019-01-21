@@ -33,11 +33,22 @@ namespace Personel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Urunler> urun = new List<Urunler>();
+            if (kayitTipi != "linq")
+            {
+                List<Urunler> urun = new List<Urunler>();
 
-            urun = bll.urunAra(textBox1.Text);
+                urun = bll.urunAra(textBox1.Text);
 
-            dataGridView1.DataSource = urun;
+                dataGridView1.DataSource = urun;
+            }
+            else
+            {
+                List<DALLinq.Urunler> urun = new List<DALLinq.Urunler>();
+
+                urun = bll2.urunAra(textBox1.Text);
+
+                dataGridView1.DataSource = urun;
+            }
         }
 
         public void kayitgetir()

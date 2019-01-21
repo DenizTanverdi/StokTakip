@@ -34,7 +34,14 @@ namespace DALLinq
             
             return urun;
         }
+        public List<Urunler> urunAra(string s)
+        {
+            var td = (from urn in db.Urunlers where urn.UrunAdi == "'" + s + "%'" select urn).ToList();
 
-        
+
+            return td;
+        }
+
+
     }
 }
