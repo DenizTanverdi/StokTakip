@@ -95,6 +95,10 @@
       <Project>{ae4558c2-8d8f-4028-99e0-362557a05d37}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Musteriler\Musteriler.csproj">
+      <Project>{feca35e3-a66b-4377-9b44-dd516b9296f9}</Project>
+      <Name>Musteriler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Personel\Personel.csproj">
       <Project>{BA1203A2-E7CC-4A2C-A1C9-16A123A448EA}</Project>
       <Name>Personel</Name>

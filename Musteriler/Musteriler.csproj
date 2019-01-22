@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BA1203A2-E7CC-4A2C-A1C9-16A123A448EA}</ProjectGuid>
+    <ProjectGuid>{FECA35E3-A66B-4377-9B44-DD516B9296F9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Personel</RootNamespace>
-    <AssemblyName>Personel</AssemblyName>
+    <RootNamespace>Musteriler</RootNamespace>
+    <AssemblyName>Musteriler</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,40 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="kategori.cs">
+    <Compile Include="MusteriGoster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kategori.Designer.cs">
-      <DependentUpon>kategori.cs</DependentUpon>
+    <Compile Include="MusteriGoster.Designer.cs">
+      <DependentUpon>MusteriGoster.cs</DependentUpon>
     </Compile>
-    <Compile Include="satisForm.cs">
+    <Compile Include="müşteriEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="satisForm.Designer.cs">
-      <DependentUpon>satisForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="urunEkle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="urunEkle.Designer.cs">
-      <DependentUpon>urunEkle.cs</DependentUpon>
+    <Compile Include="müşteriEkle.Designer.cs">
+      <DependentUpon>müşteriEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UrunleriGoster.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UrunleriGoster.Designer.cs">
-      <DependentUpon>UrunleriGoster.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="kategori.resx">
-      <DependentUpon>kategori.cs</DependentUpon>
+    <EmbeddedResource Include="MusteriGoster.resx">
+      <DependentUpon>MusteriGoster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="satisForm.resx">
-      <DependentUpon>satisForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="urunEkle.resx">
-      <DependentUpon>urunEkle.cs</DependentUpon>
+    <EmbeddedResource Include="müşteriEkle.resx">
+      <DependentUpon>müşteriEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,9 +75,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UrunleriGoster.resx">
-      <DependentUpon>UrunleriGoster.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,20 +89,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL2\BLL2.csproj">
-      <Project>{fa865594-c8e0-437a-8414-005b72e9768d}</Project>
-      <Name>BLL2</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{feb8571a-e11c-429f-a66a-d24a6bc47f38}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DALLinq\DALLinq.csproj">
-      <Project>{e51a63a8-0d6e-4d34-9ce3-68143302f44b}</Project>
-      <Name>DALLinq</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{AE4558C2-8D8F-4028-99E0-362557A05D37}</Project>
+      <Project>{ae4558c2-8d8f-4028-99e0-362557a05d37}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

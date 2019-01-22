@@ -62,7 +62,7 @@ namespace DAL
         //kategori getirme  
         public List<Kategori> KategoriGetir()
         {
-            var ct = con.Query<Kategori>("Select * from kategori").ToList();
+            var ct = con.Query<Kategori>("Select * from Kategori").ToList();
 
             return ct;
 
@@ -105,8 +105,7 @@ namespace DAL
 
         public List<Musteriler> musteriGetir()
         {
-            var td = con.Query<Musteriler>("Select * from musteriler ").ToList();
-
+            var td = con.Query<Musteriler>("Select * from musteri ").ToList();
 
             return td;
 
@@ -116,7 +115,7 @@ namespace DAL
         {
             int kayitSayisi = 0;
 
-            string sql = "Insert into Musteri (name,city,tel)Values(@ad,@il,@tel)";
+            string sql = "Insert into Musteri (MusteriAdi,city,tel)Values(@ad,@il,@tel)";
             kayitSayisi = con.Execute(sql, new { @ad = m.MusteriAdi, @il = m.city, @tel = m.Tel });
             return kayitSayisi;
         }
@@ -128,13 +127,37 @@ namespace DAL
 
             return td;
         }
+        //musteri Ara
+        public List<Musteriler> musteriAra(string m)
+        {
+            var mu = con.Query<Musteriler>("Select * from Musteri where MusteriAdi Like'" + m + "%'").ToList();
+            return mu ;
+
+        }
+        public List<Kategori> kategoriAra(string m)
+        {
+            var mu = con.Query<Kategori>("Select * from Kategori where kategoriAdi Like'" + m + "%'").ToList();
+            return mu;
+
+        }
+
+
         public  List<Satis> satis()
         {
-            string sql = "Select m.name as MusteriAdi,m.city as Sehir,m.tel as Tel,p.CalisanAdý as calisanAdi,u.UrunAdi as urunAdi,d.fiyat,d.indirim,d.miktar from Musteri m inner join Siparis as s on m.mId=s.mId inner join Detay as d on s.sId=d.sId inner join Urunler u on d.pId=u.pId inner join Personel as p on p.calisanid=s.calisanId";
+            string sql = "Select m.MusteriAdi as MusteriAdi,m.city as Sehir,m.tel as Tel,p.CalisanAdý as calisanAdi,u.UrunAdi as urunAdi,d.fiyat,d.indirim,d.miktar from Musteri m inner join Siparis as s on m.mId=s.mId inner join Detay as d on s.sId=d.sId inner join Urunler u on d.pId=u.pId inner join Personel as p on p.calisanid=s.calisanId";
             var td = con.Query<Satis>(sql).ToList();
             //
 
             return td;
+        }
+        public List<MenuS> menuGetir()
+        {
+            var td = con.Query<MenuS>("Select * from menuS ").ToList();
+
+
+            return td;
+
+
         }
     }
 

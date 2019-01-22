@@ -1,4 +1,7 @@
-﻿using Personel;
+﻿using BLL;
+using DAL;
+using Musteriler;
+using Personel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +14,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Toptanci;
 
+
+
 namespace MainForm
 {
     public partial class Main : Form
@@ -19,7 +24,7 @@ namespace MainForm
         {
             InitializeComponent();
         }
-
+        BusinessLogicLayer bll ;
         private void stokKontrolToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -55,6 +60,7 @@ namespace MainForm
         private void çIKIŞToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+           
         }
 
         private void toptancıEkleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,6 +104,44 @@ namespace MainForm
             T.MdiParent = this;
             T.Show();
             
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+           /* bll = new BLL.BusinessLogicLayer();
+            var menu =bll.menuGetir();
+            foreach (var item in menu)
+            {
+                menuStrip2.Items.Add(item.MenuName);
+            }*/
+
+
+        }
+
+        private void müşteriGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MusteriGoster m = new MusteriGoster();
+            m.MdiParent = this;
+            m.Show();
+
+
+        }
+
+        private void müşteriEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            müşteriEkle m = new müşteriEkle();
+            m.MdiParent = this;
+            m.Show();
+        }
+
+        private void kATEGORİEKLEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            kategori k = new kategori();
+            k.MdiParent = this;
+            k.Show();
+
         }
     }
 }

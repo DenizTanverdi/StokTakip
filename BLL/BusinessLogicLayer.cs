@@ -65,10 +65,22 @@ namespace BLL
             return dal.UrunleriGetir();
         }
 
+
+        // musterigetirme
+
+            public List<DAL.Musteriler> MusteriGetir()
+        {
+
+            return dal.musteriGetir();
+
+        }
+
+
         //kategori getirme
         public List<DAL.Kategori> KategoriGetir()
         {
             return dal.KategoriGetir();
+
         }
         //kategori ekleme
         public int KategoriEkle(String adı)
@@ -79,6 +91,7 @@ namespace BLL
             {
                 k.KategoriAdi = adı;
                 a = 1;
+                dal.kategoriEkle(k);
             }
             else
             {
@@ -87,6 +100,10 @@ namespace BLL
 
             return a;
 
+        }
+        public List<DAL.Kategori> kategoriAra(string s)
+        {
+            return dal.kategoriAra(s);
         }
 
         //tedarikçi getirme
@@ -146,6 +163,32 @@ namespace BLL
 
         }
 
+
+
+        public int MusteriEkle(string ad, string city, string tel )
+        {
+
+            int a = 0;
+            DAL.Musteriler m = new DAL.Musteriler();
+            if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
+            {
+                m.MusteriAdi = ad;
+               m.city = city;
+                m.Tel = tel;
+                a = 1;
+                dal.MusteriEkle(m);
+            }
+            
+            else
+            {
+                a = -1;
+
+            }
+
+            return a;
+
+        }
+
         //tedarikciAra
         public List<DAL.Tedarikci> tedarikciAra(string s)
         {
@@ -154,13 +197,10 @@ namespace BLL
 
             return dal.tedarikciAra(s);
         }
-        //musteri getir
-        public List<Musteriler> musteriGetir()
+        public List<DAL.Musteriler> musteriAra(string m)
         {
 
-
-
-            return dal.musteriGetir();
+            return dal.musteriAra(m);
         }
 
         public List<DAL.Urunler> urunAra(string s)
@@ -171,6 +211,13 @@ namespace BLL
         public List<Satis> satis()
         {
             return dal.satis();
+        }
+        public List<MenuS> menuGetir()
+        {
+
+
+
+            return dal.menuGetir();
         }
     }
 }
