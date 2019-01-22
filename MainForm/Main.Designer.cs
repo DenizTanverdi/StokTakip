@@ -37,7 +37,6 @@
             this.toptancıEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kATEGORİToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kATEGORİEKLEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kATEGORİLERİGÖSTERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sATIŞToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sATIŞYAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.müşterilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,8 +121,7 @@
             // kATEGORİToolStripMenuItem
             // 
             this.kATEGORİToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kATEGORİEKLEToolStripMenuItem,
-            this.kATEGORİLERİGÖSTERToolStripMenuItem});
+            this.kATEGORİEKLEToolStripMenuItem});
             this.kATEGORİToolStripMenuItem.Name = "kATEGORİToolStripMenuItem";
             this.kATEGORİToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.kATEGORİToolStripMenuItem.Text = "KATEGORİ";
@@ -131,14 +129,9 @@
             // kATEGORİEKLEToolStripMenuItem
             // 
             this.kATEGORİEKLEToolStripMenuItem.Name = "kATEGORİEKLEToolStripMenuItem";
-            this.kATEGORİEKLEToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.kATEGORİEKLEToolStripMenuItem.Text = "KATEGORİ EKLE";
-            // 
-            // kATEGORİLERİGÖSTERToolStripMenuItem
-            // 
-            this.kATEGORİLERİGÖSTERToolStripMenuItem.Name = "kATEGORİLERİGÖSTERToolStripMenuItem";
-            this.kATEGORİLERİGÖSTERToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.kATEGORİLERİGÖSTERToolStripMenuItem.Text = "KATEGORİLERİ GÖSTER";
+            this.kATEGORİEKLEToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.kATEGORİEKLEToolStripMenuItem.Text = "KATEGORİ EKLE VE GÖSTER";
+            this.kATEGORİEKLEToolStripMenuItem.Click += new System.EventHandler(this.kATEGORİEKLEToolStripMenuItem_Click);
             // 
             // sATIŞToolStripMenuItem
             // 
@@ -199,25 +192,25 @@
             // raporOluşturToolStripMenuItem
             // 
             this.raporOluşturToolStripMenuItem.Name = "raporOluşturToolStripMenuItem";
-            this.raporOluşturToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.raporOluşturToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.raporOluşturToolStripMenuItem.Text = "EXCEL";
             // 
             // xMLToolStripMenuItem
             // 
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // jSONToolStripMenuItem
             // 
             this.jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
-            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jSONToolStripMenuItem.Text = "JSON";
             // 
             // sOAPToolStripMenuItem
             // 
             this.sOAPToolStripMenuItem.Name = "sOAPToolStripMenuItem";
-            this.sOAPToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.sOAPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sOAPToolStripMenuItem.Text = "SOAP";
             // 
             // wEBToolStripMenuItem
@@ -273,7 +266,6 @@
         private System.Windows.Forms.ToolStripMenuItem toptancıEkleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kATEGORİToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kATEGORİEKLEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kATEGORİLERİGÖSTERToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sATIŞToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sATIŞYAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem müşterilerToolStripMenuItem;

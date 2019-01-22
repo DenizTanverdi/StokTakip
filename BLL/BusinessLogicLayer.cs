@@ -83,6 +83,7 @@ namespace BLL
         public List<DAL.Kategori> KategoriGetir()
         {
             return dal.KategoriGetir();
+
         }
         //kategori ekleme
         public int KategoriEkle(String adı)
@@ -93,6 +94,7 @@ namespace BLL
             {
                 k.KategoriAdi = adı;
                 a = 1;
+                dal.kategoriEkle(k);
             }
             else
             {
@@ -101,6 +103,10 @@ namespace BLL
 
             return a;
 
+        }
+        public List<DAL.Kategori> kategoriAra(string s)
+        {
+            return dal.kategoriAra(s);
         }
 
         //tedarikçi getirme

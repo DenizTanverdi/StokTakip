@@ -62,7 +62,7 @@ namespace DAL
         //kategori getirme  
         public List<Kategori> KategoriGetir()
         {
-            var ct = con.Query<Kategori>("Select * from kategori").ToList();
+            var ct = con.Query<Kategori>("Select * from Kategori").ToList();
 
             return ct;
 
@@ -134,11 +134,17 @@ namespace DAL
             return mu ;
 
         }
+        public List<Kategori> kategoriAra(string m)
+        {
+            var mu = con.Query<Kategori>("Select * from Kategori where kategoriAdi Like'" + m + "%'").ToList();
+            return mu;
+
+        }
 
 
         public  List<Satis> satis()
         {
-            string sql = "Select m.name as MusteriAdi,m.city as Sehir,m.tel as Tel,p.CalisanAdý as calisanAdi,u.UrunAdi as urunAdi,d.fiyat,d.indirim,d.miktar from Musteri m inner join Siparis as s on m.mId=s.mId inner join Detay as d on s.sId=d.sId inner join Urunler u on d.pId=u.pId inner join Personel as p on p.calisanid=s.calisanId";
+            string sql = "Select m.MusteriAdi as MusteriAdi,m.city as Sehir,m.tel as Tel,p.CalisanAdý as calisanAdi,u.UrunAdi as urunAdi,d.fiyat,d.indirim,d.miktar from Musteri m inner join Siparis as s on m.mId=s.mId inner join Detay as d on s.sId=d.sId inner join Urunler u on d.pId=u.pId inner join Personel as p on p.calisanid=s.calisanId";
             var td = con.Query<Satis>(sql).ToList();
             //
 

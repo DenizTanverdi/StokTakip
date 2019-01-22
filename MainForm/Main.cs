@@ -134,5 +134,14 @@ namespace MainForm
             m.MdiParent = this;
             m.Show();
         }
+
+        private void kATEGORİEKLEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            kategori k = new kategori();
+            k.MdiParent = this;
+            k.Show();
+
+        }
     }
 }
