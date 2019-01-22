@@ -68,6 +68,7 @@ namespace Personel
         }
         public void kayıtGetir()
         {
+            bll = new BLL.BusinessLogicLayer();
 
             List<Kategori> k = new List<Kategori>();
 
