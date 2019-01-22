@@ -177,6 +177,7 @@
             this.müşteriEkleToolStripMenuItem.Name = "müşteriEkleToolStripMenuItem";
             this.müşteriEkleToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.müşteriEkleToolStripMenuItem.Text = "MÜŞTERİ EKLE";
+            this.müşteriEkleToolStripMenuItem.Click += new System.EventHandler(this.müşteriEkleToolStripMenuItem_Click);
             // 
             // müşteriCariHesapToolStripMenuItem
             // 

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Musteriler;
 using Personel;
 using System;
 using System.Collections.Generic;
@@ -115,6 +116,23 @@ namespace MainForm
             }*/
 
 
+        }
+
+        private void müşteriGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MusteriGoster m = new MusteriGoster();
+            m.MdiParent = this;
+            m.Show();
+
+
+        }
+
+        private void müşteriEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            müşteriEkle m = new müşteriEkle();
+            m.MdiParent = this;
+            m.Show();
         }
     }
 }

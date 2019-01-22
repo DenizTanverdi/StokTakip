@@ -52,10 +52,19 @@
     <Compile Include="MusteriGoster.Designer.cs">
       <DependentUpon>MusteriGoster.cs</DependentUpon>
     </Compile>
+    <Compile Include="müşteriEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="müşteriEkle.Designer.cs">
+      <DependentUpon>müşteriEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MusteriGoster.resx">
       <DependentUpon>MusteriGoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="müşteriEkle.resx">
+      <DependentUpon>müşteriEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
