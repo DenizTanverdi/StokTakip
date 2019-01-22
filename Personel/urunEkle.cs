@@ -61,20 +61,18 @@ namespace Personel
             label1.Text = comboBox1.SelectedValue.ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+       
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
+            try
+            {
+                bll = new BLL.BusinessLogicLayer();
+            int a = bll.UrunEkle(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text), Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(cmbxKategori.SelectedValue));
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-            bll = new BLL.BusinessLogicLayer();
-            int a = bll.UrunEkle(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text),Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(cmbxKategori.SelectedValue));
             if (a != -1)
             {
-                MessageBox.Show("urun eklendi.");
+                MessageBox.Show("Ürün eklendi.");
 
             }
             else
@@ -83,8 +81,20 @@ namespace Personel
                 MessageBox.Show("Kayıt Başarısız.");
 
             }
+            }
+            catch (Exception )
+            {
+                
+                MessageBox.Show("Boş değer eklenemez!");
+                
+            }
+           
 
+        }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
