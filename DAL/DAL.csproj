@@ -47,6 +47,7 @@
     <Compile Include="DataAccessLayer.cs" />
     <Compile Include="Detay.cs" />
     <Compile Include="Kategori.cs" />
+    <Compile Include="MenuS.cs" />
     <Compile Include="Musteriler.cs" />
     <Compile Include="Personel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
