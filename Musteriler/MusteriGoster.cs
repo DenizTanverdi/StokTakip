@@ -43,5 +43,23 @@ namespace Musteriler
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            kayitGetir();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            List<DAL.Musteriler> urun = new List<DAL.Musteriler>();
+
+            urun = bll.musteriAra(textBox1.Text);
+
+            dataGridView1.DataSource = urun;
+
+
+
+
+        }
     }
 }

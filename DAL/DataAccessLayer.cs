@@ -115,7 +115,7 @@ namespace DAL
         {
             int kayitSayisi = 0;
 
-            string sql = "Insert into Musteri (name,city,tel)Values(@ad,@il,@tel)";
+            string sql = "Insert into Musteri (MusteriAdi,city,tel)Values(@ad,@il,@tel)";
             kayitSayisi = con.Execute(sql, new { @ad = m.MusteriAdi, @il = m.city, @tel = m.Tel });
             return kayitSayisi;
         }
@@ -127,6 +127,15 @@ namespace DAL
 
             return td;
         }
+
+        public List<Musteriler> musteriAra(string m)
+        {
+            var mu = con.Query<Musteriler>("Select * from Musteri where MusteriAdi Like'" + m + "%'").ToList();
+            return mu ;
+
+        }
+
+
         public  List<Satis> satis()
         {
             string sql = "Select m.name as MusteriAdi,m.city as Sehir,m.tel as Tel,p.CalisanAdý as calisanAdi,u.UrunAdi as urunAdi,d.fiyat,d.indirim,d.miktar from Musteri m inner join Siparis as s on m.mId=s.mId inner join Detay as d on s.sId=d.sId inner join Urunler u on d.pId=u.pId inner join Personel as p on p.calisanid=s.calisanId";

@@ -194,7 +194,11 @@ namespace BLL
 
             return dal.tedarikciAra(s);
         }
-       
+        public List<DAL.Musteriler> musteriAra(string m)
+        {
+
+            return dal.musteriAra(m);
+        }
 
         public List<DAL.Urunler> urunAra(string s)
         {
