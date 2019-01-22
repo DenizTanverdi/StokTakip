@@ -175,5 +175,12 @@ namespace BLL
         {
             return dal.satis();
         }
+        public List<MenuS> menuGetir()
+        {
+
+
+
+            return dal.menuGetir();
+        }
     }
 }

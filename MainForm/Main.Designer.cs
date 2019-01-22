@@ -51,6 +51,7 @@
             this.sOAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wEBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çIKIŞToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             this.rAPORLARToolStripMenuItem,
             this.wEBToolStripMenuItem,
             this.çIKIŞToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 2;
@@ -84,14 +85,14 @@
             // ürünEkleToolStripMenuItem
             // 
             this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ürünEkleToolStripMenuItem.Text = "ÜRÜN EKLE";
             this.ürünEkleToolStripMenuItem.Click += new System.EventHandler(this.ürünEkleToolStripMenuItem_Click);
             // 
             // ürünBilgisiToolStripMenuItem
             // 
             this.ürünBilgisiToolStripMenuItem.Name = "ürünBilgisiToolStripMenuItem";
-            this.ürünBilgisiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünBilgisiToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ürünBilgisiToolStripMenuItem.Text = "ÜRÜNLERİ GÖSTER";
             this.ürünBilgisiToolStripMenuItem.Click += new System.EventHandler(this.ürünBilgisiToolStripMenuItem_Click);
             // 
@@ -231,16 +232,27 @@
             this.çIKIŞToolStripMenuItem.Text = "ÇIKIŞ";
             this.çIKIŞToolStripMenuItem.Click += new System.EventHandler(this.çIKIŞToolStripMenuItem_Click);
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip2.TabIndex = 4;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 662);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip2;
             this.Name = "Main";
             this.Text = "ANA SAYFA";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -273,6 +285,7 @@
         private System.Windows.Forms.ToolStripMenuItem sOAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wEBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çIKIŞToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip2;
     }
 }
 

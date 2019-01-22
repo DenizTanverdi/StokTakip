@@ -136,6 +136,15 @@ namespace DAL
 
             return td;
         }
+        public List<MenuS> menuGetir()
+        {
+            var td = con.Query<MenuS>("Select * from menuS ").ToList();
+
+
+            return td;
+
+
+        }
     }
 
 }

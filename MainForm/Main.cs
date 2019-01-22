@@ -1,4 +1,6 @@
-﻿using Personel;
+﻿using BLL;
+using DAL;
+using Personel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,7 @@ namespace MainForm
         {
             InitializeComponent();
         }
-
+        BusinessLogicLayer bll ;
         private void stokKontrolToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -98,6 +100,18 @@ namespace MainForm
             T.MdiParent = this;
             T.Show();
             
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+           /* bll = new BLL.BusinessLogicLayer();
+            var menu =bll.menuGetir();
+            foreach (var item in menu)
+            {
+                menuStrip2.Items.Add(item.MenuName);
+            }*/
+
+
         }
     }
 }
