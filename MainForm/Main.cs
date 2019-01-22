@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Toptanci;
 
+
+
 namespace MainForm
 {
     public partial class Main : Form
@@ -57,6 +59,7 @@ namespace MainForm
         private void çIKIŞToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+           
         }
 
         private void toptancıEkleToolStripMenuItem_Click(object sender, EventArgs e)
