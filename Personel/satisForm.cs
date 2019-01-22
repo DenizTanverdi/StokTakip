@@ -28,5 +28,10 @@ namespace Personel
             satis = bll.satis();
             dataGridView1.DataSource = satis;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

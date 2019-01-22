@@ -62,7 +62,7 @@ namespace DAL
         //kategori getirme  
         public List<Kategori> KategoriGetir()
         {
-            var ct = con.Query<Kategori>("Select * from kategori").ToList();
+            var ct = con.Query<Kategori>("Select * from Kategori").ToList();
 
             return ct;
 
@@ -132,6 +132,12 @@ namespace DAL
         {
             var mu = con.Query<Musteriler>("Select * from Musteri where MusteriAdi Like'" + m + "%'").ToList();
             return mu ;
+
+        }
+        public List<Kategori> kategoriAra(string m)
+        {
+            var mu = con.Query<Kategori>("Select * from Kategori where kategoriAdi Like'" + m + "%'").ToList();
+            return mu;
 
         }
 

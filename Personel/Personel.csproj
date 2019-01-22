@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="kategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kategori.Designer.cs">
+      <DependentUpon>kategori.cs</DependentUpon>
+    </Compile>
     <Compile Include="satisForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="UrunleriGoster.Designer.cs">
       <DependentUpon>UrunleriGoster.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="kategori.resx">
+      <DependentUpon>kategori.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="satisForm.resx">
       <DependentUpon>satisForm.cs</DependentUpon>
     </EmbeddedResource>
