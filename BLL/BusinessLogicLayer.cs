@@ -28,7 +28,7 @@ namespace BLL
             if (k)
             {
                 string kayitTipi = Properties.Settings1.Default["kayitTipi"].ToString();
-                if (kayitTipi != "linq")
+                if (kayitTipi == "linq")
                 {
                     Users u = new Users();
                     u.email = email;
@@ -49,9 +49,6 @@ namespace BLL
             {
                 ret = -1;
             }
-            
-
-            
             return ret;
         }
 

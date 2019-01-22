@@ -20,12 +20,9 @@ namespace login
         BLL.BusinessLogicLayer bll;
         private void buttonGiris_Click(object sender, EventArgs e)
         {
-
-
             bll = new BLL.BusinessLogicLayer();
             if (bll.LoginKontrol(textBoxAdi.Text, textBoxSifre.Text) > 0)
             {
-               
                 Main main = new Main();
                 main.Show();
                 this.Visible = false;
@@ -40,6 +37,11 @@ namespace login
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

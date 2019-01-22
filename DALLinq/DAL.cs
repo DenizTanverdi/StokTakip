@@ -23,14 +23,13 @@ namespace DALLinq
             {
                 ret = -1;
             }
-
+            ////
             return ret;
 
         }
         public List<Urunler> UrunGetir()
         {
-
-
+            
             var urun = (from urn in db.Urunlers  select urn).ToList();
             
             return urun;
