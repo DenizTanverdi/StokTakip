@@ -127,7 +127,7 @@ namespace DAL
 
             return td;
         }
-
+        //musteri Ara
         public List<Musteriler> musteriAra(string m)
         {
             var mu = con.Query<Musteriler>("Select * from Musteri where MusteriAdi Like'" + m + "%'").ToList();
