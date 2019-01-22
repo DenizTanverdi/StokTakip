@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using DAL;
 
 namespace Personel
@@ -50,14 +52,14 @@ namespace Personel
                 dataGridView1.DataSource = urun;
             }
         }
-
+ List<DAL.Urunler> u = new List<DAL.Urunler>();
         public void kayitgetir()
         {
            
 
-            if (kayitTipi != "linq")
+            if (kayitTipi == "linq")
             {
-                List<DAL.Urunler> u = new List<DAL.Urunler>();
+               
 
                 u = bll.UrunleriGetir();
                 dataGridView1.DataSource = u;
@@ -84,6 +86,21 @@ namespace Personel
         {
 
             kayitgetir();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            saveFileurun.Title = "urun bilgileri kayıt";
+            saveFileurun.Filter = "*.xml|*.xml";
+            saveFileurun.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            XmlSerializer srl = new XmlSerializer(typeof(List<Urunler>));
+            if (saveFileurun.ShowDialog() == DialogResult.OK)
+            {
+                TextWriter tw = new StreamWriter(saveFileurun.FileName);
+                srl.Serialize(tw, u);
+                tw.Close();
+                MessageBox.Show("liste kaydedildi.");
+            }
         }
     }
 }

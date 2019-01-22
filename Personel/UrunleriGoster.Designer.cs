@@ -33,7 +33,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.saveFileurun = new System.Windows.Forms.SaveFileDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -81,12 +85,33 @@
             this.dataGridView1.Size = new System.Drawing.Size(737, 320);
             this.dataGridView1.TabIndex = 4;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Location = new System.Drawing.Point(451, 11);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(308, 73);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Rapor Bölümü";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(21, 19);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "XML";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // UrunleriGoster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 462);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -96,6 +121,7 @@
             this.Text = "ÜRÜN EKRANI";
             this.Load += new System.EventHandler(this.UrunleriGoster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +134,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.SaveFileDialog saveFileurun;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button3;
     }
 }

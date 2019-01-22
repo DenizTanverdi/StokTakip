@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using DAL;
 
 namespace Musteriler
@@ -32,11 +34,11 @@ namespace Musteriler
 
 
         }
-
+ List<DAL.Musteriler> m = new List<DAL.Musteriler>();
         public void kayitGetir()
         {
 
-            List<DAL.Musteriler> m = new List<DAL.Musteriler>();
+           
             bll = new BLL.BusinessLogicLayer();
             m = bll.MusteriGetir();
             dataGridView1.DataSource = m;
@@ -58,6 +60,23 @@ namespace Musteriler
             dataGridView1.DataSource = urun;
 
 
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            saveFileMüşteri.Title = "urun bilgileri kayıt";
+            saveFileMüşteri.Filter = "*.xml|*.xml";
+            saveFileMüşteri.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            XmlSerializer srl = new XmlSerializer(typeof(List<DAL.Musteriler>));
+            if (saveFileMüşteri.ShowDialog() == DialogResult.OK)
+            {
+                TextWriter tw = new StreamWriter(saveFileMüşteri.FileName);
+                srl.Serialize(tw, m);
+                tw.Close();
+                MessageBox.Show("liste kaydedildi.");
+            }
 
 
         }

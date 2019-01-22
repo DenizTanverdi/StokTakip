@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using DAL;
 
 namespace Personel
@@ -66,11 +68,12 @@ namespace Personel
         {
             kayıtGetir();
         }
+        List<Kategori> k = new List<Kategori>();
         public void kayıtGetir()
         {
             bll = new BLL.BusinessLogicLayer();
 
-            List<Kategori> k = new List<Kategori>();
+           
 
             k = bll.KategoriGetir();
 
@@ -83,6 +86,21 @@ namespace Personel
             this.Close();
 
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            saveFilekategori.Title = "kategori bilgileri kayıt";
+            saveFilekategori.Filter = "*.xml|*.xml";
+            saveFilekategori.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            XmlSerializer srl = new XmlSerializer(typeof(List<Kategori>));
+            if (saveFilekategori.ShowDialog() == DialogResult.OK)
+            {
+                TextWriter tw = new StreamWriter(saveFilekategori.FileName);
+                srl.Serialize(tw, k);
+                tw.Close();
+                MessageBox.Show("liste kaydedildi.");
+            }
         }
     }
 }

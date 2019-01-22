@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using DAL;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Toptanci
 {
@@ -36,11 +38,11 @@ namespace Toptanci
 
         }
 
-
+            List<Tedarikci> tedarikcis = new List<Tedarikci>();
         public void kayitgetir()
         {
-            List<Tedarikci> tedarikcis = new List<Tedarikci>();
 
+            tedarikcis = new List<Tedarikci>();
             tedarikcis = bll.TedarikciGetir();
           
             dataGridView1.DataSource = tedarikcis;
@@ -84,6 +86,21 @@ namespace Toptanci
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            saveFiletedarikci.Title = "tedarikci bilgileri kayıt";
+            saveFiletedarikci.Filter = "*.xml|*.xml";
+            saveFiletedarikci.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            XmlSerializer srl = new XmlSerializer(typeof(List<Tedarikci>));
+            if (saveFiletedarikci.ShowDialog() == DialogResult.OK)
+            {
+                TextWriter tw = new StreamWriter(saveFiletedarikci.FileName);
+                srl.Serialize(tw, tedarikcis);
+                tw.Close();
+                MessageBox.Show("liste kaydedildi.");
+            }
         }
     }
 }
