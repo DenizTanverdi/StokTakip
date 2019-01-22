@@ -68,6 +68,17 @@ namespace BLL
             return dal.UrunleriGetir();
         }
 
+
+        // musterigetirme
+
+            public List<DAL.Musteriler> MusteriGetir()
+        {
+
+            return dal.musteriGetir();
+
+        }
+
+
         //kategori getirme
         public List<DAL.Kategori> KategoriGetir()
         {
@@ -149,6 +160,32 @@ namespace BLL
 
         }
 
+
+
+        public int MusteriEkle(string ad, string city, string tel )
+        {
+
+            int a = 0;
+            DAL.Musteriler m = new DAL.Musteriler();
+            if (!string.IsNullOrEmpty(ad) && !string.IsNullOrEmpty(tel))
+            {
+                m.MusteriAdi = ad;
+               m.city = city;
+                m.Tel = tel;
+                a = 1;
+                dal.MusteriEkle(m);
+            }
+            
+            else
+            {
+                a = -1;
+
+            }
+
+            return a;
+
+        }
+
         //tedarikciAra
         public List<DAL.Tedarikci> tedarikciAra(string s)
         {
@@ -157,14 +194,7 @@ namespace BLL
 
             return dal.tedarikciAra(s);
         }
-        //musteri getir
-        public List<Musteriler> musteriGetir()
-        {
-
-
-
-            return dal.musteriGetir();
-        }
+       
 
         public List<DAL.Urunler> urunAra(string s)
         {

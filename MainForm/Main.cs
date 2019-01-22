@@ -102,5 +102,13 @@ namespace MainForm
             T.Show();
             
         }
+
+        private void müşteriGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Musteri 
+
+
+        }
     }
 }

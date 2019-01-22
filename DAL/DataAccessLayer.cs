@@ -105,8 +105,7 @@ namespace DAL
 
         public List<Musteriler> musteriGetir()
         {
-            var td = con.Query<Musteriler>("Select * from musteriler ").ToList();
-
+            var td = con.Query<Musteriler>("Select * from musteri ").ToList();
 
             return td;
 

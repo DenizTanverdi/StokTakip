@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5D526BD5-1224-4F5C-AA19-D9012F5B18B1}</ProjectGuid>
+    <ProjectGuid>{FECA35E3-A66B-4377-9B44-DD516B9296F9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MainForm</RootNamespace>
-    <AssemblyName>MainForm</AssemblyName>
+    <RootNamespace>Musteriler</RootNamespace>
+    <AssemblyName>Musteriler</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs">
+    <Compile Include="MusteriGoster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="MusteriGoster.Designer.cs">
+      <DependentUpon>MusteriGoster.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="MusteriGoster.resx">
+      <DependentUpon>MusteriGoster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,7 +65,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,12 +80,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\75d041a15f85b4faffd538458cc49e17.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\75d041a15f85b4faffd538458cc49e171.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{feb8571a-e11c-429f-a66a-d24a6bc47f38}</Project>
       <Name>BLL</Name>
@@ -94,18 +87,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{ae4558c2-8d8f-4028-99e0-362557a05d37}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Musteriler\Musteriler.csproj">
-      <Project>{feca35e3-a66b-4377-9b44-dd516b9296f9}</Project>
-      <Name>Musteriler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Personel\Personel.csproj">
-      <Project>{BA1203A2-E7CC-4A2C-A1C9-16A123A448EA}</Project>
-      <Name>Personel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Toptanci\Toptanci.csproj">
-      <Project>{3414717f-e95b-4705-b64c-35b44a4f5ab0}</Project>
-      <Name>Toptanci</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
