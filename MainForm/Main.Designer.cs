@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ürünlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ürünEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,11 +49,10 @@
             this.wEBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çIKIŞToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StatusLogin = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -215,36 +215,36 @@
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // statusStrip1
+            // label1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusLabel1,
-            this.StatusLogin});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 640);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
-            this.statusStrip1.TabIndex = 6;
-            this.statusStrip1.Text = "statusStrip1";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(807, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
             // 
-            // StatusLabel1
+            // label2
             // 
-            this.StatusLabel1.Name = "StatusLabel1";
-            this.StatusLabel1.Size = new System.Drawing.Size(78, 17);
-            this.StatusLabel1.Text = "LANGIRT A.Ş.";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(858, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
             // 
-            // StatusLogin
+            // timer1
             // 
-            this.StatusLogin.Name = "StatusLogin";
-            this.StatusLogin.Padding = new System.Windows.Forms.Padding(500, 0, 0, 0);
-            this.StatusLogin.Size = new System.Drawing.Size(597, 17);
-            this.StatusLogin.Text = "StatusLoginLabel";
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 662);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.IsMdiContainer = true;
@@ -255,8 +255,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,9 +282,9 @@
         private System.Windows.Forms.ToolStripMenuItem wEBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çIKIŞToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel StatusLabel1;
-        public System.Windows.Forms.ToolStripStatusLabel StatusLogin;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

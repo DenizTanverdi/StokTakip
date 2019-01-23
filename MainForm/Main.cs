@@ -149,5 +149,13 @@ namespace MainForm
            
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            label1.Text = dt.ToLongTimeString();
+            label2.Text = dt.ToLongDateString();
+
+        }
     }
 }
