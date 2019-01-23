@@ -46,7 +46,7 @@ namespace Personel
             else
             {
                 List<DALLinq.Urunler> urun = new List<DALLinq.Urunler>();
-
+                bll2 = new BLL2.BusinessLogicLayer();
                 urun = bll2.urunAra(textBox1.Text);
 
                 dataGridView1.DataSource = urun;
@@ -57,7 +57,7 @@ namespace Personel
         {
            
 
-            if (kayitTipi == "linq")
+            if (kayitTipi != "linq")
             {
                
 

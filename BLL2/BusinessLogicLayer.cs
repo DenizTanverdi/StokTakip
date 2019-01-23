@@ -20,6 +20,7 @@ namespace BLL2
         public List<DALLinq.Urunler> urunAra(string s)
         {
 
+
             return dll.urunAra(s);
         }
     }

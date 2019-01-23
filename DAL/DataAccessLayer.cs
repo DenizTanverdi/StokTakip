@@ -17,7 +17,7 @@ namespace DAL
         public DataAccessLayer()
         {
             // con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
-            string adres = "Data Source=.;Initial Catalog=StokTakipD;Integrated Security=True";
+            string adres = "Data Source=SEM-BILGISAYAR;Initial Catalog=StokTakipD;User ID=test2;Password=test2";
             con = new SqlConnection(adres);
         }
         //user kontrol kýsmý
