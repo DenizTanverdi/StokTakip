@@ -25,6 +25,7 @@ namespace login
             {
                 Main main = new Main();
                 main.Show();
+                main.StatusLogin.Text = textBoxAdi.Text;
                 this.Visible = false;
                 MessageBox.Show("Hoşgeldiniz");
             }

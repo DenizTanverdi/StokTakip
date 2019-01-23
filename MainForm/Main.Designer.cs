@@ -48,7 +48,11 @@
             this.wEBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çIKIŞToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -81,14 +85,14 @@
             // ürünEkleToolStripMenuItem
             // 
             this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ürünEkleToolStripMenuItem.Text = "ÜRÜN EKLE";
             this.ürünEkleToolStripMenuItem.Click += new System.EventHandler(this.ürünEkleToolStripMenuItem_Click);
             // 
             // ürünBilgisiToolStripMenuItem
             // 
             this.ürünBilgisiToolStripMenuItem.Name = "ürünBilgisiToolStripMenuItem";
-            this.ürünBilgisiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünBilgisiToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ürünBilgisiToolStripMenuItem.Text = "ÜRÜNLERİ GÖSTER";
             this.ürünBilgisiToolStripMenuItem.Click += new System.EventHandler(this.ürünBilgisiToolStripMenuItem_Click);
             // 
@@ -98,20 +102,20 @@
             this.toptancıGörüntüleToolStripMenuItem,
             this.toptancıEkleToolStripMenuItem});
             this.tEDARİKÇİLERToolStripMenuItem.Name = "tEDARİKÇİLERToolStripMenuItem";
-            this.tEDARİKÇİLERToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.tEDARİKÇİLERToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.tEDARİKÇİLERToolStripMenuItem.Text = "TEDARİKÇİLER";
             // 
             // toptancıGörüntüleToolStripMenuItem
             // 
             this.toptancıGörüntüleToolStripMenuItem.Name = "toptancıGörüntüleToolStripMenuItem";
-            this.toptancıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.toptancıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.toptancıGörüntüleToolStripMenuItem.Text = "TEDARİKÇİ EKLE";
             this.toptancıGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.toptancıGörüntüleToolStripMenuItem_Click_1);
             // 
             // toptancıEkleToolStripMenuItem
             // 
             this.toptancıEkleToolStripMenuItem.Name = "toptancıEkleToolStripMenuItem";
-            this.toptancıEkleToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.toptancıEkleToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.toptancıEkleToolStripMenuItem.Text = "TEDARİKÇİLERİ GÖRÜNTÜLE";
             this.toptancıEkleToolStripMenuItem.Click += new System.EventHandler(this.toptancıEkleToolStripMenuItem_Click);
             // 
@@ -120,13 +124,13 @@
             this.kATEGORİToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kATEGORİEKLEToolStripMenuItem});
             this.kATEGORİToolStripMenuItem.Name = "kATEGORİToolStripMenuItem";
-            this.kATEGORİToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.kATEGORİToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.kATEGORİToolStripMenuItem.Text = "KATEGORİ";
             // 
             // kATEGORİEKLEToolStripMenuItem
             // 
             this.kATEGORİEKLEToolStripMenuItem.Name = "kATEGORİEKLEToolStripMenuItem";
-            this.kATEGORİEKLEToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.kATEGORİEKLEToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.kATEGORİEKLEToolStripMenuItem.Text = "KATEGORİ EKLE VE GÖSTER";
             this.kATEGORİEKLEToolStripMenuItem.Click += new System.EventHandler(this.kATEGORİEKLEToolStripMenuItem_Click);
             // 
@@ -135,13 +139,13 @@
             this.sATIŞToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sATIŞYAPToolStripMenuItem});
             this.sATIŞToolStripMenuItem.Name = "sATIŞToolStripMenuItem";
-            this.sATIŞToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.sATIŞToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.sATIŞToolStripMenuItem.Text = "SİPARİŞ";
             // 
             // sATIŞYAPToolStripMenuItem
             // 
             this.sATIŞYAPToolStripMenuItem.Name = "sATIŞYAPToolStripMenuItem";
-            this.sATIŞYAPToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.sATIŞYAPToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.sATIŞYAPToolStripMenuItem.Text = "DETAY";
             this.sATIŞYAPToolStripMenuItem.Click += new System.EventHandler(this.sATIŞYAPToolStripMenuItem_Click);
             // 
@@ -186,7 +190,7 @@
             // raporOluşturToolStripMenuItem
             // 
             this.raporOluşturToolStripMenuItem.Name = "raporOluşturToolStripMenuItem";
-            this.raporOluşturToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raporOluşturToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.raporOluşturToolStripMenuItem.Text = "EXCEL";
             // 
             // wEBToolStripMenuItem
@@ -211,11 +215,36 @@
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabel1,
+            this.StatusLogin});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 640);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatusLabel1
+            // 
+            this.StatusLabel1.Name = "StatusLabel1";
+            this.StatusLabel1.Size = new System.Drawing.Size(78, 17);
+            this.StatusLabel1.Text = "LANGIRT A.Ş.";
+            // 
+            // StatusLogin
+            // 
+            this.StatusLogin.Name = "StatusLogin";
+            this.StatusLogin.Padding = new System.Windows.Forms.Padding(500, 0, 0, 0);
+            this.StatusLogin.Size = new System.Drawing.Size(597, 17);
+            this.StatusLogin.Text = "StatusLoginLabel";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 662);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.IsMdiContainer = true;
@@ -226,6 +255,8 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +284,9 @@
         private System.Windows.Forms.ToolStripMenuItem wEBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çIKIŞToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel1;
+        public System.Windows.Forms.ToolStripStatusLabel StatusLogin;
     }
 }
 
