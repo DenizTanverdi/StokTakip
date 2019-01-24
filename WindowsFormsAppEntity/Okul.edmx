@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Okul.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OkulStoreContainer">
+    <EntitySet Name="OgrenciSet" EntityType="Okul.Store.OgrenciSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SehirlerSet" EntityType="Okul.Store.SehirlerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DerslerSet" EntityType="Okul.Store.DerslerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AlinanDerslerSet" EntityType="Okul.Store.AlinanDerslerSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="OgrenciSehirler" Association="Okul.Store.OgrenciSehirler">
+      <End Role="Ogrenci" EntitySet="OgrenciSet" />
+      <End Role="Sehirler" EntitySet="SehirlerSet" />
+    </AssociationSet>
+    <AssociationSet Name="AlinanDerslerOgrenci" Association="Okul.Store.AlinanDerslerOgrenci">
+      <End Role="AlinanDersler" EntitySet="AlinanDerslerSet" />
+      <End Role="Ogrenci" EntitySet="OgrenciSet" />
+    </AssociationSet>
+    <AssociationSet Name="DerslerAlinanDersler" Association="Okul.Store.DerslerAlinanDersler">
+      <End Role="Dersler" EntitySet="DerslerSet" />
+      <End Role="AlinanDersler" EntitySet="AlinanDerslerSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="OgrenciSet">
+    <Key>
+      <PropertyRef Name="OgrId" />
+    </Key>
+    <Property Name="OgrId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OgrenciAdi" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Soyad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OgrenciNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cinsiyet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DogumTarihi" Type="datetime" Nullable="false" />
+    <Property Name="SehirId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AlinanDersler_OgId" Type="int" Nullable="false" />
+    <Property Name="AlinanDersler_DersId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SehirlerSet">
+    <Key>
+      <PropertyRef Name="SehirId" />
+    </Key>
+    <Property Name="SehirId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SehirAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ogrenci_OgrId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DerslerSet">
+    <Key>
+      <PropertyRef Name="DId" />
+    </Key>
+    <Property Name="DId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DersAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kredi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlinanDerslerSet">
+    <Key>
+      <PropertyRef Name="OgId" />
+      <PropertyRef Name="DersId" />
+    </Key>
+    <Property Name="OgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DersId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Dersler_DId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="OgrenciSehirler">
+    <End Role="Ogrenci" Type="Okul.Store.OgrenciSet" Multiplicity="1" />
+    <End Role="Sehirler" Type="Okul.Store.SehirlerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="OgrId" />
+      </Principal>
+      <Dependent Role="Sehirler">
+        <PropertyRef Name="Ogrenci_OgrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AlinanDerslerOgrenci">
+    <End Role="AlinanDersler" Type="Okul.Store.AlinanDerslerSet" Multiplicity="1" />
+    <End Role="Ogrenci" Type="Okul.Store.OgrenciSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AlinanDersler">
+        <PropertyRef Name="OgId" />
+        <PropertyRef Name="DersId" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="AlinanDersler_OgId" />
+        <PropertyRef Name="AlinanDersler_DersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DerslerAlinanDersler">
+    <End Role="Dersler" Type="Okul.Store.DerslerSet" Multiplicity="1" />
+    <End Role="AlinanDersler" Type="Okul.Store.AlinanDerslerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dersler">
+        <PropertyRef Name="DId" />
+      </Principal>
+      <Dependent Role="AlinanDersler">
+        <PropertyRef Name="Dersler_DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Okul" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="OkulContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OgrenciSet" EntityType="Okul.Ogrenci" />
+          <EntitySet Name="SehirlerSet" EntityType="Okul.Sehirler" />
+          <AssociationSet Name="OgrenciSehirler" Association="Okul.OgrenciSehirler">
+            <End Role="Ogrenci" EntitySet="OgrenciSet" />
+            <End Role="Sehirler" EntitySet="SehirlerSet" />
+          </AssociationSet>
+          <EntitySet Name="DerslerSet" EntityType="Okul.Dersler" />
+          <EntitySet Name="AlinanDerslerSet" EntityType="Okul.AlinanDersler" />
+          <AssociationSet Name="AlinanDerslerOgrenci" Association="Okul.AlinanDerslerOgrenci">
+            <End Role="AlinanDersler" EntitySet="AlinanDerslerSet" />
+            <End Role="Ogrenci" EntitySet="OgrenciSet" />
+          </AssociationSet>
+          <AssociationSet Name="DerslerAlinanDersler" Association="Okul.DerslerAlinanDersler">
+            <End Role="Dersler" EntitySet="DerslerSet" />
+            <End Role="AlinanDersler" EntitySet="AlinanDerslerSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="OgrId" />
+          </Key>
+          <Property Name="OgrId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciAdi" Type="String" Nullable="true" />
+          <Property Name="Soyad" Type="String" Nullable="false" />
+          <Property Name="OgrenciNo" Type="String" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" Nullable="false" />
+          <Property Name="DogumTarihi" Type="DateTime" Nullable="false" />
+          <Property Name="SehirId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sehirler" Relationship="Okul.OgrenciSehirler" FromRole="Ogrenci" ToRole="Sehirler" />
+          <NavigationProperty Name="AlinanDersler" Relationship="Okul.AlinanDerslerOgrenci" FromRole="Ogrenci" ToRole="AlinanDersler" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="SehirId" />
+          </Key>
+          <Property Name="SehirId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SehirAdi" Type="String" Nullable="false" />
+          <NavigationProperty Name="Ogrenci" Relationship="Okul.OgrenciSehirler" FromRole="Sehirler" ToRole="Ogrenci" />
+        </EntityType>
+        <Association Name="OgrenciSehirler">
+          <End Type="Okul.Ogrenci" Role="Ogrenci" Multiplicity="1" />
+          <End Type="Okul.Sehirler" Role="Sehirler" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="DId" />
+          </Key>
+          <Property Name="DId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersAdi" Type="String" Nullable="false" />
+          <Property Name="Kredi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlinanDersler" Relationship="Okul.DerslerAlinanDersler" FromRole="Dersler" ToRole="AlinanDersler" />
+        </EntityType>
+        <EntityType Name="AlinanDersler">
+          <Key>
+            <PropertyRef Name="OgId" />
+            <PropertyRef Name="DersId" />
+          </Key>
+          <Property Name="OgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Ogrenci" Relationship="Okul.AlinanDerslerOgrenci" FromRole="AlinanDersler" ToRole="Ogrenci" />
+          <NavigationProperty Name="Dersler" Relationship="Okul.DerslerAlinanDersler" FromRole="AlinanDersler" ToRole="Dersler" />
+        </EntityType>
+        <Association Name="AlinanDerslerOgrenci">
+          <End Type="Okul.AlinanDersler" Role="AlinanDersler" Multiplicity="1" />
+          <End Type="Okul.Ogrenci" Role="Ogrenci" Multiplicity="*" />
+        </Association>
+        <Association Name="DerslerAlinanDersler">
+          <End Type="Okul.Dersler" Role="Dersler" Multiplicity="1" />
+          <End Type="Okul.AlinanDersler" Role="AlinanDersler" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OkulStoreContainer" CdmEntityContainer="OkulContainer">
+    <EntitySetMapping Name="OgrenciSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Okul.Ogrenci)">
+        <MappingFragment StoreEntitySet="OgrenciSet">
+          <ScalarProperty Name="OgrId" ColumnName="OgrId" />
+          <ScalarProperty Name="OgrenciAdi" ColumnName="OgrenciAdi" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="OgrenciNo" ColumnName="OgrenciNo" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SehirlerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Okul.Sehirler)">
+        <MappingFragment StoreEntitySet="SehirlerSet">
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+          <ScalarProperty Name="SehirAdi" ColumnName="SehirAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DerslerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Okul.Dersler)">
+        <MappingFragment StoreEntitySet="DerslerSet">
+          <ScalarProperty Name="DId" ColumnName="DId" />
+          <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+          <ScalarProperty Name="Kredi" ColumnName="Kredi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlinanDerslerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Okul.AlinanDersler)">
+        <MappingFragment StoreEntitySet="AlinanDerslerSet">
+          <ScalarProperty Name="OgId" ColumnName="OgId" />
+          <ScalarProperty Name="DersId" ColumnName="DersId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="OgrenciSehirler" TypeName="Okul.OgrenciSehirler" StoreEntitySet="SehirlerSet">
+      <EndProperty Name="Ogrenci">
+        <ScalarProperty Name="OgrId" ColumnName="Ogrenci_OgrId" />
+      </EndProperty>
+      <EndProperty Name="Sehirler">
+        <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AlinanDerslerOgrenci" TypeName="Okul.AlinanDerslerOgrenci" StoreEntitySet="OgrenciSet">
+      <EndProperty Name="AlinanDersler">
+        <ScalarProperty Name="OgId" ColumnName="AlinanDersler_OgId" />
+        <ScalarProperty Name="DersId" ColumnName="AlinanDersler_DersId" />
+      </EndProperty>
+      <EndProperty Name="Ogrenci">
+        <ScalarProperty Name="OgrId" ColumnName="OgrId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DerslerAlinanDersler" TypeName="Okul.DerslerAlinanDersler" StoreEntitySet="AlinanDerslerSet">
+      <EndProperty Name="Dersler">
+        <ScalarProperty Name="DId" ColumnName="Dersler_DId" />
+      </EndProperty>
+      <EndProperty Name="AlinanDersler">
+        <ScalarProperty Name="OgId" ColumnName="OgId" />
+        <ScalarProperty Name="DersId" ColumnName="DersId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
