@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StokTakipDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="altMenuS">
+          <Key>
+            <PropertyRef Name="altMenuS" />
+          </Key>
+          <Property Name="altMenuS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="altMenuName" Type="varchar" MaxLength="50" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detay">
+          <Key>
+            <PropertyRef Name="dId" />
+          </Key>
+          <Property Name="dId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sId" Type="int" Nullable="false" />
+          <Property Name="pId" Type="int" Nullable="false" />
+          <Property Name="fiyat" Type="money" Nullable="false" />
+          <Property Name="indirim" Type="int" />
+          <Property Name="miktar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="ctId" />
+          </Key>
+          <Property Name="ctId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriAdi" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MenuS">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Musteri">
+          <Key>
+            <PropertyRef Name="mId" />
+          </Key>
+          <Property Name="mId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriAdi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="calisanid" />
+          </Key>
+          <Property Name="calisanid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CalisanAdı" Type="varchar" MaxLength="50" />
+          <Property Name="CalisanSoyadi" Type="varchar" MaxLength="50" />
+          <Property Name="Görev" Type="varchar" MaxLength="50" />
+          <Property Name="Sehir" Type="varchar" MaxLength="50" />
+          <Property Name="TelNo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mId" Type="int" Nullable="false" />
+          <Property Name="calisanId" Type="int" Nullable="false" />
+          <Property Name="SiparisTarih" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tedarikci">
+          <Key>
+            <PropertyRef Name="tdId" />
+          </Key>
+          <Property Name="tdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tedarikciAdi" Type="varchar" MaxLength="50" />
+          <Property Name="ulke" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="il" Type="varchar" MaxLength="50" />
+          <Property Name="ilce" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="pId" />
+          </Key>
+          <Property Name="pId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="varchar" MaxLength="50" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="Fiyat" Type="money" />
+          <Property Name="UstId" Type="int" />
+          <Property Name="tdId" Type="int" Nullable="false" />
+          <Property Name="ctId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="pasword" Type="nvarchar" MaxLength="50" />
+          <Property Name="isLogin" Type="bit" />
+        </EntityType>
+        <Association Name="FK_altMenuS_MenuS">
+          <End Role="MenuS" Type="Self.MenuS" Multiplicity="1" />
+          <End Role="altMenuS" Type="Self.altMenuS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuS">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="altMenuS">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detay_Siparis">
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+          <End Role="Detay" Type="Self.Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="sId" />
+            </Principal>
+            <Dependent Role="Detay">
+              <PropertyRef Name="sId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detay_Urun">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+          <End Role="Detay" Type="Self.Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="Detay">
+              <PropertyRef Name="pId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kategori_kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Kategori1" Type="Self.Kategori" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="ctId" />
+            </Principal>
+            <Dependent Role="Kategori1">
+              <PropertyRef Name="ctId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_Calisan">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="calisanid" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="calisanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_Musteri">
+          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri">
+              <PropertyRef Name="mId" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="mId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="ctId" />
+            </Principal>
+            <Dependent Role="Urunler">
+              <PropertyRef Name="ctId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Tedarikci">
+          <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="1" />
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tedarikci">
+              <PropertyRef Name="tdId" />
+            </Principal>
+            <Dependent Role="Urunler">
+              <PropertyRef Name="tdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Urun">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+          <End Role="Urunler1" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="Urunler1">
+              <PropertyRef Name="UstId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StokTakipDModelStoreContainer">
+          <EntitySet Name="altMenuS" EntityType="Self.altMenuS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detay" EntityType="Self.Detay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuS" EntityType="Self.MenuS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tedarikci" EntityType="Self.Tedarikci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_altMenuS_MenuS" Association="Self.FK_altMenuS_MenuS">
+            <End Role="MenuS" EntitySet="MenuS" />
+            <End Role="altMenuS" EntitySet="altMenuS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detay_Siparis" Association="Self.FK_Detay_Siparis">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="Detay" EntitySet="Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detay_Urun" Association="Self.FK_Detay_Urun">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Detay" EntitySet="Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kategori_kategori" Association="Self.FK_kategori_kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Kategori1" EntitySet="Kategori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_Calisan" Association="Self.FK_Siparis_Calisan">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_Musteri" Association="Self.FK_Siparis_Musteri">
+            <End Role="Musteri" EntitySet="Musteri" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_kategori" Association="Self.FK_Urun_kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urunler" EntitySet="Urunler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Tedarikci" Association="Self.FK_Urun_Tedarikci">
+            <End Role="Tedarikci" EntitySet="Tedarikci" />
+            <End Role="Urunler" EntitySet="Urunler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Urun" Association="Self.FK_Urun_Urun">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Urunler1" EntitySet="Urunler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StokTakipDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="altMenuS">
+          <Key>
+            <PropertyRef Name="altMenuS1" />
+          </Key>
+          <Property Name="altMenuS1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="altMenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MenuS" Relationship="Self.FK_altMenuS_MenuS" FromRole="altMenuS" ToRole="MenuS" />
+        </EntityType>
+        <EntityType Name="Detay">
+          <Key>
+            <PropertyRef Name="dId" />
+          </Key>
+          <Property Name="dId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sId" Type="Int32" Nullable="false" />
+          <Property Name="pId" Type="Int32" Nullable="false" />
+          <Property Name="fiyat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="indirim" Type="Int32" />
+          <Property Name="miktar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Siparis" Relationship="Self.FK_Detay_Siparis" FromRole="Detay" ToRole="Siparis" />
+          <NavigationProperty Name="Urunler" Relationship="Self.FK_Detay_Urun" FromRole="Detay" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="ctId" />
+          </Key>
+          <Property Name="ctId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kategori1" Relationship="Self.FK_kategori_kategori" FromRole="Kategori" ToRole="Kategori1" />
+          <NavigationProperty Name="Kategori2" Relationship="Self.FK_kategori_kategori" FromRole="Kategori1" ToRole="Kategori" />
+          <NavigationProperty Name="Urunler" Relationship="Self.FK_Urun_kategori" FromRole="Kategori" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="MenuS">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="altMenuS" Relationship="Self.FK_altMenuS_MenuS" FromRole="MenuS" ToRole="altMenuS" />
+        </EntityType>
+        <EntityType Name="Musteri">
+          <Key>
+            <PropertyRef Name="mId" />
+          </Key>
+          <Property Name="mId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Siparis" Relationship="Self.FK_Siparis_Musteri" FromRole="Musteri" ToRole="Siparis" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="calisanid" />
+          </Key>
+          <Property Name="calisanid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CalisanAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalisanSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Görev" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sehir" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Siparis" Relationship="Self.FK_Siparis_Calisan" FromRole="Personel" ToRole="Siparis" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mId" Type="Int32" Nullable="false" />
+          <Property Name="calisanId" Type="Int32" Nullable="false" />
+          <Property Name="SiparisTarih" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Detay" Relationship="Self.FK_Detay_Siparis" FromRole="Siparis" ToRole="Detay" />
+          <NavigationProperty Name="Musteri" Relationship="Self.FK_Siparis_Musteri" FromRole="Siparis" ToRole="Musteri" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_Siparis_Calisan" FromRole="Siparis" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tedarikci">
+          <Key>
+            <PropertyRef Name="tdId" />
+          </Key>
+          <Property Name="tdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tedarikciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ulke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="il" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Urunler" Relationship="Self.FK_Urun_Tedarikci" FromRole="Tedarikci" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="pId" />
+          </Key>
+          <Property Name="pId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="Fiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UstId" Type="Int32" />
+          <Property Name="tdId" Type="Int32" Nullable="false" />
+          <Property Name="ctId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Detay" Relationship="Self.FK_Detay_Urun" FromRole="Urunler" ToRole="Detay" />
+          <NavigationProperty Name="Kategori" Relationship="Self.FK_Urun_kategori" FromRole="Urunler" ToRole="Kategori" />
+          <NavigationProperty Name="Tedarikci" Relationship="Self.FK_Urun_Tedarikci" FromRole="Urunler" ToRole="Tedarikci" />
+          <NavigationProperty Name="Urunler1" Relationship="Self.FK_Urun_Urun" FromRole="Urunler" ToRole="Urunler1" />
+          <NavigationProperty Name="Urunler2" Relationship="Self.FK_Urun_Urun" FromRole="Urunler1" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pasword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isLogin" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_altMenuS_MenuS">
+          <End Role="MenuS" Type="Self.MenuS" Multiplicity="1" />
+          <End Role="altMenuS" Type="Self.altMenuS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuS">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="altMenuS">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detay_Siparis">
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+          <End Role="Detay" Type="Self.Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="sId" />
+            </Principal>
+            <Dependent Role="Detay">
+              <PropertyRef Name="sId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detay_Urun">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+          <End Role="Detay" Type="Self.Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="Detay">
+              <PropertyRef Name="pId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kategori_kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Kategori1" Type="Self.Kategori" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="ctId" />
+            </Principal>
+            <Dependent Role="Kategori1">
+              <PropertyRef Name="ctId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="ctId" />
+            </Principal>
+            <Dependent Role="Urunler">
+              <PropertyRef Name="ctId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_Musteri">
+          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri">
+              <PropertyRef Name="mId" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="mId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siparis_Calisan">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="calisanid" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="calisanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Tedarikci">
+          <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="1" />
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tedarikci">
+              <PropertyRef Name="tdId" />
+            </Principal>
+            <Dependent Role="Urunler">
+              <PropertyRef Name="tdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Urun">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+          <End Role="Urunler1" Type="Self.Urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="Urunler1">
+              <PropertyRef Name="UstId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StokTakipDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="altMenuS" EntityType="Self.altMenuS" />
+          <EntitySet Name="Detay" EntityType="Self.Detay" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" />
+          <EntitySet Name="MenuS" EntityType="Self.MenuS" />
+          <EntitySet Name="Musteri" EntityType="Self.Musteri" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tedarikci" EntityType="Self.Tedarikci" />
+          <EntitySet Name="Urunler" EntityType="Self.Urunler" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_altMenuS_MenuS" Association="Self.FK_altMenuS_MenuS">
+            <End Role="MenuS" EntitySet="MenuS" />
+            <End Role="altMenuS" EntitySet="altMenuS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detay_Siparis" Association="Self.FK_Detay_Siparis">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="Detay" EntitySet="Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detay_Urun" Association="Self.FK_Detay_Urun">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Detay" EntitySet="Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kategori_kategori" Association="Self.FK_kategori_kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Kategori1" EntitySet="Kategori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_kategori" Association="Self.FK_Urun_kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urunler" EntitySet="Urunler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_Musteri" Association="Self.FK_Siparis_Musteri">
+            <End Role="Musteri" EntitySet="Musteri" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siparis_Calisan" Association="Self.FK_Siparis_Calisan">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Tedarikci" Association="Self.FK_Urun_Tedarikci">
+            <End Role="Tedarikci" EntitySet="Tedarikci" />
+            <End Role="Urunler" EntitySet="Urunler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Urun" Association="Self.FK_Urun_Urun">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Urunler1" EntitySet="Urunler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StokTakipDModelStoreContainer" CdmEntityContainer="StokTakipDEntities">
+          <EntitySetMapping Name="altMenuS">
+            <EntityTypeMapping TypeName="StokTakipDModel.altMenuS">
+              <MappingFragment StoreEntitySet="altMenuS">
+                <ScalarProperty Name="altMenuS1" ColumnName="altMenuS" />
+                <ScalarProperty Name="altMenuName" ColumnName="altMenuName" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detay">
+            <EntityTypeMapping TypeName="StokTakipDModel.Detay">
+              <MappingFragment StoreEntitySet="Detay">
+                <ScalarProperty Name="dId" ColumnName="dId" />
+                <ScalarProperty Name="sId" ColumnName="sId" />
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="indirim" ColumnName="indirim" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategori">
+            <EntityTypeMapping TypeName="StokTakipDModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="ctId" ColumnName="ctId" />
+                <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuS">
+            <EntityTypeMapping TypeName="StokTakipDModel.MenuS">
+              <MappingFragment StoreEntitySet="MenuS">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musteri">
+            <EntityTypeMapping TypeName="StokTakipDModel.Musteri">
+              <MappingFragment StoreEntitySet="Musteri">
+                <ScalarProperty Name="mId" ColumnName="mId" />
+                <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel">
+            <EntityTypeMapping TypeName="StokTakipDModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="calisanid" ColumnName="calisanid" />
+                <ScalarProperty Name="CalisanAdı" ColumnName="CalisanAdı" />
+                <ScalarProperty Name="CalisanSoyadi" ColumnName="CalisanSoyadi" />
+                <ScalarProperty Name="Görev" ColumnName="Görev" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis">
+            <EntityTypeMapping TypeName="StokTakipDModel.Siparis">
+              <MappingFragment StoreEntitySet="Siparis">
+                <ScalarProperty Name="sId" ColumnName="sId" />
+                <ScalarProperty Name="mId" ColumnName="mId" />
+                <ScalarProperty Name="calisanId" ColumnName="calisanId" />
+                <ScalarProperty Name="SiparisTarih" ColumnName="SiparisTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StokTakipDModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tedarikci">
+            <EntityTypeMapping TypeName="StokTakipDModel.Tedarikci">
+              <MappingFragment StoreEntitySet="Tedarikci">
+                <ScalarProperty Name="tdId" ColumnName="tdId" />
+                <ScalarProperty Name="tedarikciAdi" ColumnName="tedarikciAdi" />
+                <ScalarProperty Name="ulke" ColumnName="ulke" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="il" ColumnName="il" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunler">
+            <EntityTypeMapping TypeName="StokTakipDModel.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="UstId" ColumnName="UstId" />
+                <ScalarProperty Name="tdId" ColumnName="tdId" />
+                <ScalarProperty Name="ctId" ColumnName="ctId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StokTakipDModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pasword" ColumnName="pasword" />
+                <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

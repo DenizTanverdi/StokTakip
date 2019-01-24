@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL2", "BLL2\BLL2.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musteriler", "Musteriler\Musteriler.csproj", "{FECA35E3-A66B-4377-9B44-DD516B9296F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALEntity", "DALEntity1\DALEntity.csproj", "{B0FAF47E-A8FD-42B8-85AF-A7AD2AC8759C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{FECA35E3-A66B-4377-9B44-DD516B9296F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FECA35E3-A66B-4377-9B44-DD516B9296F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FECA35E3-A66B-4377-9B44-DD516B9296F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0FAF47E-A8FD-42B8-85AF-A7AD2AC8759C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FAF47E-A8FD-42B8-85AF-A7AD2AC8759C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0FAF47E-A8FD-42B8-85AF-A7AD2AC8759C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0FAF47E-A8FD-42B8-85AF-A7AD2AC8759C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
